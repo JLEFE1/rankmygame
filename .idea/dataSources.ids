@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - GAMESRANKING@localhost" uuid="8cd8303b-9074-43ea-8f94-de01c21d11a5">
+    <database-info product="MySQL" version="5.6.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="GAMESRANKING"/>
+    <table name="GAMES" schema="" catalog="GAMESRANKING" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="GAME_TITLE" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DESIGNER" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PUBLISHER" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ARTIST" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FK_GAME_2" table="RANKING" schema="" catalog="GAMESRANKING" columns="GAME_ID"/>
+      <index name="UQ_CONTACT_1" unique="true" columns="GAME_TITLE,DESIGNER"/>
+    </table>
+    <table name="PLAYER" schema="" catalog="GAMESRANKING" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="FIRST_NAME" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LAST_NAME" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="BIRTH_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="2000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PHOTO" sqlType="BLOB" precision="65535" scale="0" nullable="true" jdbcType="-4"/>
+      <column name="VERSION" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FK_PLAYER_EMAIL_DETAIL_1" table="PLAYER_EMAIL_DETAIL" schema="" catalog="GAMESRANKING" columns="PLAYER_ID"/>
+      <exported-key name="FK_PLAYER_TEL_DETAIL_1" table="PLAYER_TEL_DETAIL" schema="" catalog="GAMESRANKING" columns="PLAYER_ID"/>
+      <exported-key name="FK_PLAYER_1" table="RANKING" schema="" catalog="GAMESRANKING" columns="PLAYER_ID"/>
+      <index name="UQ_PLAYER_1" unique="true" columns="FIRST_NAME,LAST_NAME"/>
+    </table>
+    <table name="PLAYER_EMAIL_DETAIL" schema="" catalog="GAMESRANKING" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PLAYER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EMAIL" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FK_PLAYER_EMAIL_DETAIL_1" columns="PLAYER_ID" ref-table="PLAYER" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UQ_PLAYER_EMAIL_DETAIL_1" unique="true" columns="PLAYER_ID,EMAIL"/>
+    </table>
+    <table name="PLAYER_TEL_DETAIL" schema="" catalog="GAMESRANKING" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PLAYER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TEL_TYPE" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="TEL_NUMBER" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FK_PLAYER_TEL_DETAIL_1" columns="PLAYER_ID" ref-table="PLAYER" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UQ_PLAYER_TEL_DETAIL_1" unique="true" columns="PLAYER_ID,TEL_TYPE"/>
+    </table>
+    <table name="RANKING" schema="" catalog="GAMESRANKING" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PLAYER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="GAME_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FK_GAME_2" columns="GAME_ID" ref-table="GAMES" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_PLAYER_1" columns="PLAYER_ID" ref-table="PLAYER" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UQ_PLAYER_ID_GAME_ID" unique="true" columns="PLAYER_ID,GAME_ID"/>
+      <index name="FK_GAME_2" unique="false" columns="GAME_ID"/>
+    </table>
+  </data-source>
+</component>
