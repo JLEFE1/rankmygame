@@ -12,10 +12,13 @@
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=8" />
-		
+
+		<spring:theme code="styleSheet" var="app_css" />
+		<spring:url value="/${app_css}" var="app_css_url" />
+		<link rel="styleSheet" type="text/css" media="screen" href="${app_css_url}" />
 	</head>
 	
-  	<body>
+  	<body class="tundra spring">
   	    <div id="headerWrapper">
   	        <tiles:insertAttribute name="header" ignore="true" />
   	    </div>
