@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18401ea0-72ef-414e-9d03-a90ae9a16c71" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/application_zh_HK.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/messages_zh_HK.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rankmygame/WEB-INF/layouts/default.jspx" afterPath="$PROJECT_DIR$/target/rankmygame/WEB-INF/layouts/default.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/footer.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/footer.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/footer.jspx" afterPath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/footer.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/header.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/header.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/header.jspx" afterPath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/header.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/home.jspx" afterPath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/home.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jspx" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/menu.jspx" afterPath="$PROJECT_DIR$/target/rankmygame/WEB-INF/views/menu.jspx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rankmygame/WEB-INF/spring/appServlet/servlet-context.xml" afterPath="$PROJECT_DIR$/target/rankmygame/WEB-INF/spring/appServlet/servlet-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="18401ea0-72ef-414e-9d03-a90ae9a16c71" name="Default" comment="" />
     <ignored path="rankmygame.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1003,12 +984,12 @@
       <updated>1429690069415</updated>
       <workItem from="1429690071322" duration="4199000" />
       <workItem from="1429694650630" duration="3789000" />
-      <workItem from="1429702406631" duration="5243000" />
+      <workItem from="1429702406631" duration="5340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13231000" />
+    <option name="totallyTimeSpent" value="13328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1386" height="877" extended-state="6" />
