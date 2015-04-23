@@ -11,11 +11,13 @@
     <spring:message code="menu_add_player" var="addPlayerLabel"/>
     <spring:message code="menu_add_game" var="addGameLabel"/>
 
-    <spring:url value="/players?form" var="addGameUrl"/>
-    <spring:url value="/games?form" var="addPlayerUrl"/>
+    <spring:url value="/player?form" var="addGameUrl"/>
+    <spring:url value="/game?form" var="addPlayerUrl"/>
+    <spring:url value="/" var="addHomeUrl"/>
 
     <h3>${menuLabel}</h3>
     <a href="${addPlayerUrl}"><h3>${addPlayerLabel}</h3></a>
     <a href="${addGameUrl}"><h3>${addGameLabel}</h3></a>
+    <a href="${addHomeUrl}"><h3>${menuLabel}</h3></a>
 
 </div>

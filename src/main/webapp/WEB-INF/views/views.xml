@@ -8,4 +8,12 @@
         <put-attribute name="body" value="/WEB-INF/views/home.jspx" />
     </definition>
 
+    <definition name="player" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/player.jspx" />
+    </definition>
+
+    <definition name="game" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/game.jspx" />
+    </definition>
+
 </tiles-definitions>

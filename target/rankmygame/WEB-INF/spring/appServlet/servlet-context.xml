@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3-1.xsd">
 
     <annotation-driven />
-    <resources mapping="/resources/**" location="classpath:resources/"/>
+    <resources mapping="/resources/**" location="/"/>
 
     <default-servlet-handler/>
 	
@@ -34,6 +34,18 @@
     <beans:bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
                 id="messageSource" p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application"
                 p:fallbackToSystemLocale="false"/>
+
+    <!-- register "global" interceptor beans to apply to all registered HandlerMappings -->
+    <interceptors>
+        <beans:bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
+    </interceptors>
+
+    <!-- resolves localized <theme_name>.properties files in the classpath to allow for theme support -->
+    <beans:bean class="org.springframework.ui.context.support.ResourceBundleThemeSource" id="themeSource"/>
+
+    <!-- store preferred theme configuration in a cookie -->
+    <beans:bean class="org.springframework.web.servlet.theme.CookieThemeResolver" id="themeResolver" p:cookieName="theme" p:defaultThemeName="standard"/>
+
 
 
 </beans:beans>
