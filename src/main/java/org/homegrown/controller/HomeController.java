@@ -18,5 +18,17 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping(value = "player", params = "form", method = RequestMethod.GET)
+    public String newPlayer(ModelMap model) {
+        model.addAttribute("message", "Hello world!");
+        return "player";
+    }
+
+    @RequestMapping(value = "game", params = "form", method = RequestMethod.GET)
+    public String newGame(ModelMap model) {
+        model.addAttribute("message", "Hello world!");
+        return "game";
+    }
+
 }
 
