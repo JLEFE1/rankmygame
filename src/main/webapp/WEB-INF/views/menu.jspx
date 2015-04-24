@@ -13,8 +13,8 @@
     <spring:message code="menu_players" var="playersLabel"/>
     <spring:message code="menu_games" var="gamesLabel"/>
 
-    <spring:url value="/game?form" var="addGameUrl"/>
-    <spring:url value="/player?form" var="addPlayerUrl"/>
+    <spring:url value="/games?form" var="addGameUrl"/>
+    <spring:url value="/players?form" var="addPlayerUrl"/>
     <spring:url value="/" var="addHomeUrl"/>
 
     <tilesx:useAttribute name="current"/>

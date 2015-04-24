@@ -10,12 +10,12 @@
     </definition>
 
     <definition name="players" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/players.jspx" />
+        <put-attribute name="body" value="/WEB-INF/views/players/players.jspx" />
         <put-attribute name="current" value="players" cascade="true"/>
     </definition>
 
     <definition name="games" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/games.jspx" />
+        <put-attribute name="body" value="/WEB-INF/views/games/games.jspx" />
         <put-attribute name="current" value="games" cascade="true"/>
     </definition>
 
