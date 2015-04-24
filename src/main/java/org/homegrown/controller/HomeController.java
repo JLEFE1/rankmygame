@@ -12,22 +12,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 
+    Boolean bool = false;
+
+    public Boolean getBool(){
+        return this.bool;
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
         model.addAttribute("message", "Hello world!");
+
         return "home";
     }
 
     @RequestMapping(value = "player", params = "form", method = RequestMethod.GET)
     public String newPlayer(ModelMap model) {
         model.addAttribute("message", "Hello world!");
-        return "player";
+        return "players";
     }
 
     @RequestMapping(value = "game", params = "form", method = RequestMethod.GET)
     public String newGame(ModelMap model) {
         model.addAttribute("message", "Hello world!");
-        return "game";
+        return "games";
     }
 
 }

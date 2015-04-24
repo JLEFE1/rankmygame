@@ -16,7 +16,13 @@
 	
 	<context:component-scan base-package="org.homegrown.controller" />
 
-    <!-- Tiles configuration -->
+    <!-- Whitout tile
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/" />
+        <beans:property name="suffix" value=".jspx" />
+    </beans:bean>
+
+    Tiles configuration-->
     <beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
     </beans:bean>

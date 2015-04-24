@@ -6,14 +6,17 @@
 
     <definition name="home" extends="default">
         <put-attribute name="body" value="/WEB-INF/views/home.jspx" />
+        <put-attribute name="current" value="home" cascade="true"/>
     </definition>
 
-    <definition name="player" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/player.jspx" />
+    <definition name="players" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players.jspx" />
+        <put-attribute name="current" value="players" cascade="true"/>
     </definition>
 
-    <definition name="game" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/game.jspx" />
+    <definition name="games" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games.jspx" />
+        <put-attribute name="current" value="games" cascade="true"/>
     </definition>
 
 </tiles-definitions>
