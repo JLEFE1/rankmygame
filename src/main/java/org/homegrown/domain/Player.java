@@ -1,5 +1,7 @@
 package org.homegrown.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,11 +18,13 @@ public class Player implements Serializable {
 
     @Version
     @Column(name = "VERSION")
-    private  int version;
+    private int version;
 
+    @NotEmpty(message = "{validation.firstname.NotEmpty.message}")
     @Column(name = "FIRST_NAME")
     private String firstName;
 
+    @NotEmpty(message = "{validation.lastname.NotEmpty.message}")
     @Column(name = "LAST_NAME")
     private String lastName;
 

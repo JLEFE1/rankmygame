@@ -9,12 +9,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3-1.xsd">
 
-    <annotation-driven />
+    <annotation-driven validator="validator"/>
     <resources mapping="/resources/**" location="/"/>
 
     <default-servlet-handler/>
 	
-	<context:component-scan base-package="org.homegrown.controller" />
+	<context:component-scan base-package="org.homegrown.web.controller" />
 
     <!-- Whitout tile
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -53,5 +53,8 @@
     <beans:bean class="org.springframework.web.servlet.theme.CookieThemeResolver" id="themeResolver" p:cookieName="theme" p:defaultThemeName="standard"/>
 
 
+    <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <beans:property name="validationMessageSource" ref="messageSource"/>
+    </beans:bean>
 
 </beans:beans>

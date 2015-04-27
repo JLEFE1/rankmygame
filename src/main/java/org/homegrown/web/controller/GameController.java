@@ -1,4 +1,4 @@
-package org.homegrown.controller;
+package org.homegrown.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
