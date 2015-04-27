@@ -27,8 +27,10 @@
 		    <tiles:insertAttribute name="menu" ignore="true" />   
 		    <div id="main">
 	    		<tiles:insertAttribute name="body"/> 
-		    	<tiles:insertAttribute name="footer" ignore="true"/>
-		    </div>
+			</div>
+		</div>
+		<div id="footerWrapper">
+			<tiles:insertAttribute name="footer" ignore="true"/>
 		</div>
 	</body>
 </html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	 xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form"
+	 version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
+
+	<jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+
+	<spring:message code="label_update_player" var="updatePlayerLabel"/>
+	<spring:message code="label_new_player" var = "newPlayerLabel"/>
+	<spring:message code="label_player_first_name" var = "firstNameLabel"/>
+	<spring:message code="label_player_last_name" var = "lastNameLabel"/>
+	<spring:message code="label_player_description" var = "descriptionLabel"/>
+	<spring:message code="label_player_update" var="labelPlayerUpdate"/>
+
+	<spring:url value="/players" var="editPlayerUrl"/>
+
+	<spring:eval expression="player.id == null ? newPlayerLabel:updatePlayerLabel" var="formTitle"/>
+
+	<h1>${formTitle}</h1>
+
+	<div id="playerUpdate">
+		<form:form modelAttribute="player" id="playerUpdateForm" method="post" enctype="multipart/form-data">
+			<c:if test="${not empty message}">
+				<div id="message" class="${message.type}">${message.message}</div>
+			</c:if>
+
+			<form:label path="firstName">
+				${firstNameLabel}*
+			</form:label>
+			<form:input path="firstName" />
+			<div>
+				<form:errors path="firstName" cssClass="error" />
+			</div>
+			<p/>
+
+			<form:label path="lastName">
+				${lastNameLabel}*
+			</form:label>
+			<form:input path="lastName" />
+			<div>
+				<form:errors path="lastName" cssClass="error" />
+			</div>
+			<p/>
+
+			<form:label path="description">
+				${descriptionLabel}
+			</form:label>
+			<form:textarea cols="60" rows="8" path="description" id="contactDescription"/>
+			<div>
+				<form:errors path="description" cssClass="error" />
+			</div>
+			<p/>
+
+			<button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+				<span class="ui-button-text">Save</span>
+			</button>
+			<button type="reset" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+				<span class="ui-button-text">Reset</span>
+			</button>
+		</form:form>
+	</div>
+
+
+
+</div>

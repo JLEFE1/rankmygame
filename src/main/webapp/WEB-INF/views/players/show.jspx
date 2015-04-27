@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
 	 xmlns:spring="http://www.springframework.org/tags"
-	 xmlns:c="http://java.sun.com/jsp/jstl/core"
 	 version="2.0">
 
 	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
@@ -12,26 +11,29 @@
 	<spring:message code="label_player_first_name" var = "firstNameLabel"/>
 	<spring:message code="label_player_last_name" var = "lastNameLabel"/>
 	<spring:message code="label_player_description" var = "descriptionLabel"/>
+	<spring:message code="label_player_update" var="labelPlayerUpdate"/>
 
-	<spring:url value="/players" var="playerUrl"/>
+	<spring:url value="/players" var="editPlayerUrl"/>
 
-	<table>
-		<thead>
+	<div id="playerInfo">
+		<table>
 			<tr>
-				<th>${firstNameLabel}</th>
-				<th>${lastNameLabel}</th>
-				<th>${descriptionLabel}</th>
+				<td><label for="firstName">${firstNameLabel}</label></td>
+				<td>${player.firstName}</td>
 			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${players}" var="player">
 			<tr>
-				<td><a href="${playerUrl}/${player.id}"><c:out value="${player.firstName}"/></a></td>
-				<td><c:out value="${player.lastName}"/></td>
-				<td><c:out value="${player.description}"/></td>
+				<td><label for="lastName">${lastNameLabel}</label></td>
+				<td>${player.lastName}</td>
 			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			<tr>
+				<td><label for="description">${descriptionLabel}</label></td>
+				<td>${player.description}</td>
+			</tr>
+		</table>
 
+		<br/>
+
+		<a href="${editPlayerUrl}/${player.id}?form">${labelPlayerUpdate}</a>
+
+	</div>
 </div>

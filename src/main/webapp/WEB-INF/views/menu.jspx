@@ -17,9 +17,10 @@
     <spring:url value="/players?form" var="addPlayerUrl"/>
     <spring:url value="/" var="addHomeUrl"/>
 
+
     <tilesx:useAttribute name="current"/>
 
-    <h3>${menuLabel}</h3>
+    <a href="${addHomeUrl}"><h1 class="${current == 'home' ? 'active' : ''}">${menuLabel}</h1></a>
     <ul>
         <li><a href="${addPlayerUrl}"><h2 class="${current == 'players' ? 'active' : ''}">${playersLabel}</h2></a></li>
         <c:if test="${current == 'players' ? true : false}">
@@ -28,6 +29,6 @@
             </ul>
         </c:if>
         <li><a href="${addGameUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${gamesLabel}</h2></a></li>
-        <li><a href="${addHomeUrl}"><h2 class="${current == 'home' ? 'active' : ''}">${menuLabel}</h2></a></li>
+
     </ul>
 </div>
