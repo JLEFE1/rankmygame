@@ -2,10 +2,9 @@ package org.homegrown.service;
 
 import com.google.common.collect.Lists;
 import org.homegrown.domain.Game;
-import org.homegrown.domain.Player;
+import org.homegrown.domain.xml.Boardgame;
 import org.homegrown.domain.xml.Boardgames;
 import org.homegrown.repository.GameRepository;
-import org.homegrown.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -23,12 +22,12 @@ import java.util.List;
 public class GameServiceImpl implements GameService {
 
     private final static String URL = "http://boardgamegeek.com/xmlapi/search?search=";
-
-    @Autowired
-    private RestTemplate restTemplate;
+    private final static String URL_FIND_GAME_BY_ID = "http://www.boardgamegeek.com/xmlapi/boardgame/";
 
     @Autowired
     private GameRepository gameRepo;
+
+    private RestTemplate restTemplate;
 
     @Override
     @Transactional(readOnly = true)
@@ -49,7 +48,18 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public Boardgames findGameOnBggByName(String name) {
+        restTemplate = new RestTemplate();
         return restTemplate.getForObject(URL + name, Boardgames.class);
+    }
+
+    @Override
+    public Boardgame findGameOnBggById(Long id) {
+        restTemplate = new RestTemplate();
+
+        String test = restTemplate.getForObject(URL_FIND_GAME_BY_ID + id, String.class);
+        Boardgames games = restTemplate.getForObject(URL_FIND_GAME_BY_ID + id, Boardgames.class);
+
+        return games.getBoardgames().get(0);
     }
 
 }

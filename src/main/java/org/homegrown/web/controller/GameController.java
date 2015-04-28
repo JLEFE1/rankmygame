@@ -1,18 +1,15 @@
 package org.homegrown.web.controller;
 
-import org.homegrown.domain.Games;
+import org.homegrown.domain.xml.Boardgame;
 import org.homegrown.domain.xml.Boardgames;
 import org.homegrown.service.GameService;
-import org.homegrown.service.GameServiceImpl;
 import org.homegrown.web.form.games.FindGameForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by JoLe on 22/04/15.
@@ -34,26 +31,36 @@ public class GameController {
 
     @RequestMapping(value = "/find", method = RequestMethod.GET)
     public String findGameInBGG(Model uimodel){
+        uimodel.addAttribute("form", new FindGameForm());
+        return "games/find";
+    }
 
-        FindGameForm form = new FindGameForm();
-        Boardgames games = gameService.findGameOnBggByName("galaxy");
+    @RequestMapping(value = "/find", method = RequestMethod.POST)
+    public String foundGameInBGG(FindGameForm form, Model uimodel){
 
-        form.getGames().addAll(games.getBoardgames());
+        String lookUp = form.getLookUpTag();
+        Boardgames games;
+
+        if (lookUp != null && lookUp != ""){
+            games = gameService.findGameOnBggByName(lookUp);
+            if (games.getBoardgames().size() != 0) {
+                form.getGames().addAll(games.getBoardgames());
+            }
+        }
+
+
 
         uimodel.addAttribute("form", form);
         return "games/find";
     }
 
-    @RequestMapping(value = "/find", method = RequestMethod.POST)
-    public String foundGameInBGG(Model uimodel){
+    @RequestMapping(value = "/game/{id}", method = RequestMethod.GET)
+    public String findGameInBGG(@PathVariable("id") Long id, Model uimodel){
 
-        FindGameForm form = new FindGameForm();
-        Boardgames games = gameService.findGameOnBggByName("galaxy");
+        Boardgame game = gameService.findGameOnBggById(id);
 
-        form.getGames().addAll(games.getBoardgames());
-
-        uimodel.addAttribute("form", form);
-        return "games/find";
+        uimodel.addAttribute("game", game);
+        return "games/game/show";
     }
 
 }

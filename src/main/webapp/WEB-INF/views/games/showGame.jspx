@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	 xmlns:spring="http://www.springframework.org/tags"
+	 version="2.0">
+
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
+
+	<jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+
+	<spring:message code="label_game_name" var = "gameNameLabel"/>
+	<spring:message code="label_game_objectid" var = "objectLabel"/>
+	<spring:message code="label_game_yearpublished" var = "yearPublishedLabel"/>
+	<spring:message code="label_game_minPlayers" var = "minPlayersLabel"/>
+	<spring:message code="label_game_maxplayers" var = "maxPlayersLabel"/>
+	<spring:message code="label_game_playingtime" var = "averagePlayingTimeLabel"/>
+	<spring:message code="label_game_minplayingtime" var = "minPlayingLabel"/>
+	<spring:message code="label_game_maxplayingtime" var = "maxPlayingLabel"/>
+	<spring:message code="label_game_age" var = "ageLabel"/>
+	<spring:message code="label_game_description" var = "descriptionLabel"/>
+	<spring:message code="label_game_boardgamepublisher" var = "publisherLabel"/>
+	<spring:message code="label_game_boardgamedesigner" var = "designerLabel"/>
+	<spring:message code="label_game_boardgameversion" var = "versionLabel"/>
+	<spring:message code="label_game_boardgamefamily" var = "familyLabel"/>
+	<spring:message code="label_game_boardgamesubdomain" var = "subDomainLabel"/>
+	<spring:message code="label_game_boardgamecategory" var = "categoryLabel"/>
+	<spring:message code="label_game_thumbnail" var = "thumbnailLabel"/>
+	<spring:message code="label_game_image" var = "imageLabel"/>
+
+
+	<h2>${game.name}</h2>
+	<div id="gameInfo">
+		<table>
+			<tr>
+				<td><label for="name">${objectLabel}</label></td>
+				<td>${game.objectid}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${gameNameLabel}</label></td>
+				<td>${game.name}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${yearPublishedLabel}</label></td>
+				<td>${game.yearpublished}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${minPlayersLabel}</label></td>
+				<td>${game.minPlayers}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${maxPlayersLabel}</label></td>
+				<td>${game.maxPlayers}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${ageLabel}</label></td>
+				<td>${game.age}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${descriptionLabel}</label></td>
+				<td>${game.description}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${publisherLabel}</label></td>
+				<td>${game.boardgamepublisher}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${designerLabel}</label></td>
+				<td>${game.boardgamedesigner}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${versionLabel}</label></td>
+				<td>${game.boardgameversion}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${familyLabel}</label></td>
+				<td>${game.boardgamefamily}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${subDomainLabel}</label></td>
+				<td>${game.boardgamesubdomain}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${categoryLabel}</label></td>
+				<td>${game.boardgamecategory}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${thumbnailLabel}</label></td>
+				<td>${game.thumbnail}</td>
+			</tr>
+			<tr>
+				<td><label for="name">${imageLabel}</label></td>
+				<td>${game.image}</td>
+			</tr>
+		</table>
+
+		<br/>
+
+
+	</div>
+</div>

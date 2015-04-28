@@ -10,6 +10,8 @@
 
 	<spring:message code="menu_find_games" var = "findGameLabel"/>
 
+	<spring:url value="/games/game" var="gameUrl"/>
+
 	<h1>${findGameLabel}</h1>
 
 	<div id="findGame">
@@ -21,8 +23,25 @@
 			<form:input path="lookUpTag" />
 
 			<button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-				<span class="ui-button-text">Save</span>
+				<span class="ui-button-text">Find</span>
 			</button>
+
+			<c:if test="${not empty form.games}">
+				<table>
+					<theader>
+						<tr>
+							<th>Game title</th>
+						</tr>
+					</theader>
+					<tbody>
+					<c:forEach items="${form.games}" var="game">
+						<tr>
+							<td><a href="${gameUrl}/${game.objectid}"><c:out value="${game.name}"/></a></td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
 
 		</form:form>
 	</div>

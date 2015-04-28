@@ -10,7 +10,7 @@
 
     </class>
 
-    <class name="org.homegrown.domain.Game">
+    <class name="org.homegrown.domain.BggGame">
     
         <field name="gameTitle" type="string">
             <bind-xml name="name" node="element" />

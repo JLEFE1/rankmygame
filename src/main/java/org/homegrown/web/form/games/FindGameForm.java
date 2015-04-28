@@ -12,6 +12,8 @@ public class FindGameForm {
 
     private String lookUpTag;
 
+    private List<Boardgame> games;
+
     public List<Boardgame> getGames() {
         if (games == null){
             games = new ArrayList<>();
@@ -31,5 +33,4 @@ public class FindGameForm {
         this.lookUpTag = lookUpTag;
     }
 
-    private List<Boardgame> games;
 }

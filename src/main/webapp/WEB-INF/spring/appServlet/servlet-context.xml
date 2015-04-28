@@ -18,7 +18,7 @@
 
     <default-servlet-handler/>
 	
-	<context:component-scan base-package="org.homegrown.web.controller" />
+	<context:component-scan base-package="org.homegrown" />
 
     <!-- Whitout tile
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -61,33 +61,6 @@
         <beans:property name="validationMessageSource" ref="messageSource"/>
     </beans:bean>
 
-    <beans:bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
-        <!--<beans:property name="messageConverters">
-            <beans:list>
-                <beans:bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-                    <beans:property name="marshaller" ref="castorMarshaller"/>
-                    <beans:property name="unmarshaller" ref="castorMarshaller"/>
-                    <beans:property name="supportedMediaTypes">
-                        <beans:list>
-                            <beans:bean class="org.springframework.http.MediaType">
-                                <beans:constructor-arg index="0" value="application"/>
-                                <beans:constructor-arg index="1" value="xml"/>
-                            </beans:bean>
-                            <beans:bean class="org.springframework.http.MediaType">
-                                <beans:constructor-arg index="0" value="text"/>
-                                <beans:constructor-arg index="1" value="xml"/>
-                            </beans:bean>
-                        </beans:list>
-                    </beans:property>
-                </beans:bean>
-            </beans:list>
-        </beans:property>-->
-    </beans:bean>
-
-    <beans:bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller">
-        <beans:property name="mappingLocation" value="classpath:oxm-mapping.xml"/>
-        <beans:property name="targetClasses" value="org.homegrown.domain.Games"/>
-        <beans:property name="rootElement" value="boardgames"/>
-    </beans:bean>
+    <beans:bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
 
 </beans:beans>
