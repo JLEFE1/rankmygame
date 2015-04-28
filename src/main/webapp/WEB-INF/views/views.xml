@@ -29,6 +29,11 @@
         <put-attribute name="current" value="games" cascade="true"/>
     </definition>
 
+    <definition name="games/find" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/findGames.jspx" />
+        <put-attribute name="current" value="games" cascade="true"/>
+    </definition>
+
     <definition name="disclaimer" extends="default">
         <put-attribute name="body" value="/WEB-INF/views/disclaimer.jspx" />
         <put-attribute name="current" value="disclaimer" cascade="true"/>
