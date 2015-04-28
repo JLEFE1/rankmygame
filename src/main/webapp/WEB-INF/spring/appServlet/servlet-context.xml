@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+             xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:util="http://www.springframework.org/schema/util"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3-1.xsd">
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3-1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <annotation-driven validator="validator"/>
+
+    <mvc:annotation-driven validator="validator"/>
+
     <resources mapping="/resources/**" location="/"/>
 
     <default-servlet-handler/>
@@ -55,6 +59,35 @@
 
     <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <beans:property name="validationMessageSource" ref="messageSource"/>
+    </beans:bean>
+
+    <beans:bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <!--<beans:property name="messageConverters">
+            <beans:list>
+                <beans:bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+                    <beans:property name="marshaller" ref="castorMarshaller"/>
+                    <beans:property name="unmarshaller" ref="castorMarshaller"/>
+                    <beans:property name="supportedMediaTypes">
+                        <beans:list>
+                            <beans:bean class="org.springframework.http.MediaType">
+                                <beans:constructor-arg index="0" value="application"/>
+                                <beans:constructor-arg index="1" value="xml"/>
+                            </beans:bean>
+                            <beans:bean class="org.springframework.http.MediaType">
+                                <beans:constructor-arg index="0" value="text"/>
+                                <beans:constructor-arg index="1" value="xml"/>
+                            </beans:bean>
+                        </beans:list>
+                    </beans:property>
+                </beans:bean>
+            </beans:list>
+        </beans:property>-->
+    </beans:bean>
+
+    <beans:bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller">
+        <beans:property name="mappingLocation" value="classpath:oxm-mapping.xml"/>
+        <beans:property name="targetClasses" value="org.homegrown.domain.Games"/>
+        <beans:property name="rootElement" value="boardgames"/>
     </beans:bean>
 
 </beans:beans>

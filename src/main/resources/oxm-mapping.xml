@@ -1,0 +1,21 @@
+<mapping>
+
+    <class name="org.homegrown.domain.Games">
+
+        <map-to xml="boardgames"/>
+
+        <field name="games" type="org.homegrown.domain.Games" collection="arraylist">
+            <bind-xml name="boardgame" node="element"/>
+        </field>
+
+    </class>
+
+    <class name="org.homegrown.domain.Game">
+    
+        <field name="gameTitle" type="string">
+            <bind-xml name="name" node="element" />
+        </field>
+
+    </class>
+
+</mapping>
