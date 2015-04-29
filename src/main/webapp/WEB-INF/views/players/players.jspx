@@ -28,7 +28,7 @@
 			<tr>
 				<td><a href="${playerUrl}/${player.id}"><c:out value="${player.firstName}"/></a></td>
 				<td><c:out value="${player.lastName}"/></td>
-				<td><c:out value="${player.description}"/></td>
+				<td>${player.description}</td>
 			</tr>
 			</c:forEach>
 		</tbody>
