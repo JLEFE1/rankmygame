@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
-	 xmlns:spring="http://www.springframework.org/tags"
+	 xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core"
 	 version="2.0">
 
 	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
@@ -28,9 +28,13 @@
 
 
 	<h2>${game.name}</h2>
+
+
+
 	<div id="gameInfo">
 		<table>
 			<tr>
+				<th rowspan="6"><img src="${game.thumbnail}" /></th>
 				<td><label for="name">${objectLabel}</label></td>
 				<td>${game.objectid}</td>
 			</tr>
@@ -56,40 +60,80 @@
 			</tr>
 			<tr>
 				<td><label for="name">${descriptionLabel}</label></td>
-				<td>${game.description}</td>
+				<td colspan="2">${game.description}</td>
 			</tr>
+			<c:if test="${not empty game.boardgamepublisher}">
 			<tr>
 				<td><label for="name">${publisherLabel}</label></td>
-				<td>${game.boardgamepublisher}</td>
+				<td colspan="2">
+					<ul>
+						<c:forEach items="${game.boardgamepublisher}" var="publisher">
+							<li>${publisher.name}</li>
+						</c:forEach>
+					</ul>
+				</td>
 			</tr>
+			</c:if>
+			<c:if test="${not empty game.boardgamedesigner}">
 			<tr>
 				<td><label for="name">${designerLabel}</label></td>
-				<td>${game.boardgamedesigner}</td>
+				<td colspan="2">
+					<ul>
+						<c:forEach items="${game.boardgamedesigner}" var="designer">
+							<li>${designer.name}</li>
+						</c:forEach>
+					</ul>
+				</td>
 			</tr>
+			</c:if>
+			<c:if test="${not empty game.boardgameversion}">
 			<tr>
 				<td><label for="name">${versionLabel}</label></td>
-				<td>${game.boardgameversion}</td>
+				<td colspan="2">
+					<ul>
+						<c:forEach items="${game.boardgameversion}" var="version">
+							<li>${version.name}</li>
+						</c:forEach>
+					</ul>
+				</td>
 			</tr>
+			</c:if>
+			<c:if test="${not empty game.boardgamefamily}">
 			<tr>
 				<td><label for="name">${familyLabel}</label></td>
-				<td>${game.boardgamefamily}</td>
+				<td colspan="2">
+					<ul>
+						<c:forEach items="${game.boardgamefamily}" var="family">
+							<li>${family.name}</li>
+						</c:forEach>
+					</ul>
+				</td>
 			</tr>
+			</c:if>
+			<c:if test="${not empty game.boardgamesubdomain}">
 			<tr>
 				<td><label for="name">${subDomainLabel}</label></td>
-				<td>${game.boardgamesubdomain}</td>
+				<td colspan="2">
+					<ul>
+						<c:forEach items="${game.boardgamesubdomain}" var="subdomain">
+							<li>${subdomain.name}</li>
+						</c:forEach>
+					</ul>
+				</td>
 			</tr>
+			</c:if>
+			<c:if test="${not empty game.boardgamecategory}">
 			<tr>
 				<td><label for="name">${categoryLabel}</label></td>
-				<td>${game.boardgamecategory}</td>
+				<td colspan="2">
+					<ul>
+						<c:forEach items="${game.boardgamecategory}" var="category">
+							<li>${category.name}</li>
+						</c:forEach>
+					</ul>
+				</td>
 			</tr>
-			<tr>
-				<td><label for="name">${thumbnailLabel}</label></td>
-				<td>${game.thumbnail}</td>
-			</tr>
-			<tr>
-				<td><label for="name">${imageLabel}</label></td>
-				<td>${game.image}</td>
-			</tr>
+			</c:if>
 		</table>
 
 		<br/>

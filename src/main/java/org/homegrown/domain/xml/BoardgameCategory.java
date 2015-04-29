@@ -6,8 +6,8 @@ import javax.xml.bind.annotation.*;
  * Created by JoLe on 28/04/15.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "boardgamedesigner")
-public class BoardgameDesigner {
+@XmlRootElement(name = "boardgamecategory")
+public class BoardgameCategory {
 
     @XmlAttribute(name = "objectid")
     private Integer objectid;

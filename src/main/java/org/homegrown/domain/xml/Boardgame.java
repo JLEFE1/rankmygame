@@ -44,31 +44,22 @@ public class Boardgame {
     private String description;
 
     @XmlElement(name = "boardgamepublisher")
-    private List<String> boardgamepublisher;
-
-//
-//    @XmlElement(name = "boardgamedesigner")
-//    private List<String> boardgamedesigner;
+    private List<BoardgamePublisher> boardgamepublisher;
 
     @XmlElement(name = "boardgamedesigner")
     private List<BoardgameDesigner> boardgamedesigner;
 
-//    @XmlElement(name = "boardgamedesigner")
-//    private List<People> boardgamedesignerClasses;
-
-
-
     @XmlElement(name = "boardgameversion")
-    private List<String> boardgameversion;
+    private List<BoardgameVersion> boardgameversion;
 
     @XmlElement(name = "boardgamefamily")
-    private List<String> boardgamefamily;
+    private List<BoardgameFamily> boardgamefamily;
 
     @XmlElement(name = "boardgamesubdomain")
-    private List<String> boardgamesubdomain;
+    private List<BoardgameSubdomain> boardgamesubdomain;
 
     @XmlElement(name = "boardgamecategory")
-    private List<String> boardgamecategory;
+    private List<BoardgameCategory> boardgamecategory;
 
     @XmlElement(name = "thumbnail")
     private String thumbnail;
@@ -92,35 +83,35 @@ public class Boardgame {
         this.boardgamedesigner = boardgamedesigner;
     }
 
-    public List<String> getBoardgameversion() {
+    public List<BoardgameVersion> getBoardgameversion() {
         return boardgameversion;
     }
 
-    public void setBoardgameversion(List<String> boardgameversion) {
+    public void setBoardgameversion(List<BoardgameVersion> boardgameversion) {
         this.boardgameversion = boardgameversion;
     }
 
-    public List<String> getBoardgamefamily() {
+    public List<BoardgameFamily> getBoardgamefamily() {
         return boardgamefamily;
     }
 
-    public void setBoardgamefamily(List<String> boardgamefamily) {
+    public void setBoardgamefamily(List<BoardgameFamily> boardgamefamily) {
         this.boardgamefamily = boardgamefamily;
     }
 
-    public List<String> getBoardgamesubdomain() {
+    public List<BoardgameSubdomain> getBoardgamesubdomain() {
         return boardgamesubdomain;
     }
 
-    public void setBoardgamesubdomain(List<String> boardgamesubdomain) {
+    public void setBoardgamesubdomain(List<BoardgameSubdomain> boardgamesubdomain) {
         this.boardgamesubdomain = boardgamesubdomain;
     }
 
-    public List<String> getBoardgamecategory() {
+    public List<BoardgameCategory> getBoardgamecategory() {
         return boardgamecategory;
     }
 
-    public void setBoardgamecategory(List<String> boardgamecategory) {
+    public void setBoardgamecategory(List<BoardgameCategory> boardgamecategory) {
         this.boardgamecategory = boardgamecategory;
     }
 
@@ -180,11 +171,11 @@ public class Boardgame {
         this.description = description;
     }
 
-    public List<String> getBoardgamepublisher() {
+    public List<BoardgamePublisher> getBoardgamepublisher() {
         return boardgamepublisher;
     }
 
-    public void setBoardgamepublisher(List<String> boardgamepublisher) {
+    public void setBoardgamepublisher(List<BoardgamePublisher> boardgamepublisher) {
         this.boardgamepublisher = boardgamepublisher;
     }
 
