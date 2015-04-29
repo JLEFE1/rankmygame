@@ -98,19 +98,31 @@ body {
 	padding: 0px;
 }
 
+#menu li.active{
+	background: #aaaaaa;
+}
 
-#menu a, #menu h2 {
+
+#menu a, #menu h2, #menu h3 {
 	display: block;
 	margin: 0;
 	padding: 2px 6px;
-	color:#FFFFFF;
+	color:#aaaaaa;
 }
 
-#menu h2 {
-	color: #fff;
+#menu h2.active {
+	color: #aaabbb;
 	background: #648C1D;
 	text-transform: uppercase;
 	font-weight:bold;
+	font-size: 12px;
+}
+
+#menu h3.active {
+	color: #aaabbb;
+	background: #648C1D;
+	text-transform: uppercase;
+	font-weight: bold;
 	font-size: 12px;
 }
 
