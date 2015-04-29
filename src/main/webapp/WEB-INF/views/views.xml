@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <definition name="home" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/home.jspx" />
+        <put-attribute name="current" value="home" cascade="true"/>
+    </definition>
+
+    <definition name="players/playerlist" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/players.jspx" />
+        <put-attribute name="current" value="players" cascade="true"/>
+    </definition>
+
+    <definition name="players/show" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/show.jspx" />
+        <put-attribute name="current" value="player" cascade="true"/>
+    </definition>
+
+    <definition name="players/updateForm" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/updatePlayer.jspx" />
+        <put-attribute name="current" value="updatePlayer" cascade="true"/>
+    </definition>
+
+    <definition name="games" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/games.jspx" />
+        <put-attribute name="current" value="games" cascade="true"/>
+    </definition>
+
+    <definition name="games/find" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/findGames.jspx" />
+        <put-attribute name="current" value="games" cascade="true"/>
+    </definition>
+
+    <definition name="games/game/show" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/showGame.jspx" />
+        <put-attribute name="current" value="player" cascade="true"/>
+    </definition>
+
+    <definition name="disclaimer" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/disclaimer.jspx" />
+        <put-attribute name="current" value="disclaimer" cascade="true"/>
+    </definition>
+
+    <definition name="contact" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/contact.jspx" />
+        <put-attribute name="current" value="contact" cascade="true"/>
+    </definition>
+
+
+</tiles-definitions>

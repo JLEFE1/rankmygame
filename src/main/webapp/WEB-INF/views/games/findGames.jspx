@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	 xmlns:spring="http://www.springframework.org/tags"
+	 xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form"
+	 version="2.0">
+
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
+
+	<jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+
+	<spring:message code="menu_find_games" var = "findGameLabel"/>
+
+	<spring:url value="/games/game" var="gameUrl"/>
+
+	<h1>${findGameLabel}</h1>
+
+	<div id="findGame">
+		<form:form id="findGameForm" method="post" modelAttribute="form">
+
+			<form:label path="lookUpTag">
+				${findGameLabel}
+			</form:label>
+			<form:input path="lookUpTag" />
+
+			<button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+				<span class="ui-button-text">Find</span>
+			</button>
+
+			<c:if test="${not empty form.games}">
+				<table>
+					<theader>
+						<tr>
+							<th>Game title</th>
+						</tr>
+					</theader>
+					<tbody>
+					<c:forEach items="${form.games}" var="game">
+						<tr>
+							<td><a href="${gameUrl}/${game.objectid}"><c:out value="${game.name}"/></a></td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
+
+		</form:form>
+	</div>
+
+</div>

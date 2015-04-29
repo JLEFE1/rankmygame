@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="footer" xmlns:jsp="http://java.sun.com/JSP/Page"
+	  xmlns:spring="http://www.springframework.org/tags"
+	  version="2.0">
+
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
+
+	<jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+
+	<spring:url value="/disclaimer" var="disclaimerUrl"/>
+	<spring:url value="/contact" var="contactUrl"/>
+
+
+	<div style="float:right; text-align: right; width:50%;">
+		<a href="${disclaimerUrl}">Disclaimer</a>
+		|
+		<a href="${contactUrl}">Contact</a>
+	</div>
+
+</div>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="menu" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:tilesx="http://tiles.apache.org/tags-tiles-extras"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:h="http://java.sun.com/jsf/html">
+
+    <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+
+    <spring:message code="menu_header_text" var="menuLabel"/>
+    <spring:message code="menu_players" var="playersLabel"/>
+    <spring:message code="menu_games" var="gamesLabel"/>
+    <spring:message code="menu_find_games" var="findGamesLabel"/>
+
+    <spring:url value="/games?form" var="addGameUrl"/>
+    <spring:url value="/games/find" var="findGameUrl"/>
+    <spring:url value="/players?form" var="addPlayerUrl"/>
+    <spring:url value="/" var="addHomeUrl"/>
+
+
+    <tilesx:useAttribute name="current"/>
+
+    <a href="${addHomeUrl}"><h1 class="${current == 'home' ? 'active' : ''}">${menuLabel}</h1></a>
+    <ul>
+        <li><a href="${addPlayerUrl}"><h2 class="${current == 'players' ? 'active' : ''}">${playersLabel}</h2></a></li>
+        <c:if test="${current == 'players' ? true : false}">
+            <ul>
+                <li><h3 class="active">Test</h3></li>
+            </ul>
+        </c:if>
+        <li><a href="${addGameUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${gamesLabel}</h2></a></li>
+        <c:if test="${current == 'games' ? true : false}">
+            <ul>
+                <li><a href="${findGameUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${findGamesLabel}</h2></a></li>
+            </ul>
+        </c:if>
+    </ul>
+</div>
