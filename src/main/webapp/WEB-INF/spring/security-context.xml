@@ -7,15 +7,31 @@
              http://www.springframework.org/schema/security
              http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
-    <http use-expressions="true">
-        <intercept-url pattern='/WEB-INF' access='permitAll' />
-        <form-login login-page="/contacts" authentication-failure-url="/security/loginfail" default-target-url="/contacts" />
-        <logout logout-success-url="/contacts"/>
+    <http>
+        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
+        <form-login login-page="/signin"
+                    username-parameter="j_username"
+                    password-parameter="j_password"
+                    default-target-url="/"
+                    login-processing-url="/signin"/>
+        <logout
+                logout-url="/logout"
+                logout-success-url="/"/>
+        <csrf/>
     </http>
+
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="user" password="user" authorities="ROLE_USER" />
+                <user name="joris"
+                      password="123456"
+                      authorities="ROLE_USER, ROLE_ADMIN" />
+                <user name="user"
+                      password="password"
+                      authorities="ROLE_USER"/>
+                <user name="admin"
+                      password="password"
+                      authorities="ROLE_USER,ROLE_ADMIN"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>

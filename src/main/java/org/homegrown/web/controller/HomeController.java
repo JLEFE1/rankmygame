@@ -27,5 +27,11 @@ public class HomeController {
         return "contact";
     }
 
+    @RequestMapping(value = "admin", method = RequestMethod.GET)
+    public String adminPage() {
+        return "admin";
+
+    }
+
 }
 
