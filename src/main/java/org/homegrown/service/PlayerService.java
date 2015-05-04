@@ -10,6 +10,8 @@ public interface PlayerService {
 
     Player findById(final Long id);
 
+    List<Player> findByCriteria(final String firstName, final String lastName);
+
     Player save(final Player player);
 
 }
