@@ -13,6 +13,8 @@
       <column name="DESIGNER" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
       <column name="PUBLISHER" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
       <column name="ARTIST" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BGG_OBJECT_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="VERSION" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
       <exported-key name="FK_GAME_2" table="RANKING" schema="" catalog="GAMESRANKING" columns="GAME_ID"/>
       <index name="UQ_CONTACT_1" unique="true" columns="GAME_TITLE,DESIGNER"/>
