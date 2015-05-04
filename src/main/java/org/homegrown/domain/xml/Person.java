@@ -2,12 +2,13 @@ package org.homegrown.domain.xml;
 
 import javax.persistence.PersistenceContext;
 import javax.xml.bind.annotation.XmlElement;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by JoLe on 28/04/15.
  */
-public class Person {
+public class Person implements Serializable {
 
     @XmlElement(name = "name")
     private  String name;
