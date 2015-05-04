@@ -14,6 +14,9 @@ public class Game implements Serializable {
     @Column(name = "ID")
     private Long id;
 
+    @Column(name = "BGG_OBJECT_ID")
+    private Long bggId;
+
     @Column(name = "GAME_TITLE")
     private String gameTitle;
 
@@ -22,6 +25,13 @@ public class Game implements Serializable {
 
     @Column(name = "PUBLISHER")
     private String publisher;
+
+    @Column(name = "ARTIST")
+    private String artist;
+
+    @Column(name = "VERSION")
+    @Version
+    private int version;
 
     public String getArtist() {
         return artist;
@@ -37,6 +47,14 @@ public class Game implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getBggId() {
+        return bggId;
+    }
+
+    public void setBggId(Long bggId) {
+        this.bggId = bggId;
     }
 
     public String getDesigner() {
@@ -55,15 +73,20 @@ public class Game implements Serializable {
         this.publisher = publisher;
     }
 
-    @Column(name = "ARTIST")
-    private String artist;
-
     public String getGameTitle() {
         return gameTitle;
     }
 
-    public void setGameTitle(String firstName) {
+    public void setGameTitle(String gameTitle) {
         this.gameTitle = gameTitle;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
     }
 
     public String toString() {
