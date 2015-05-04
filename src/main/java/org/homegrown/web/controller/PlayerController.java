@@ -65,8 +65,13 @@ public class PlayerController {
         return "redirect:/players/" + UrlUtil.encodeUrlPathSegment(player.getId().toString(), httpServletRequest);
     }
 
-    @RequestMapping(params = "form", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getPlayerList(ModelMap uiModel) {
+        return "players";
+    }
+
+    @RequestMapping(value = "findPlayer", method = RequestMethod.GET)
+    public String findPlayer(ModelMap uiModel) {
 
         logger.info("Listing players");
 
@@ -75,7 +80,20 @@ public class PlayerController {
 
         logger.info("No. of players: " + players.size());
 
-        return "players/playerlist";
+        return "players/findPlayer";
+    }
+
+    @RequestMapping(value = "addGameResult", method = RequestMethod.GET)
+    public String addGameResult(ModelMap uiModel) {
+
+        logger.info("Listing players");
+
+        List<Player> players = playerService.findAll();
+        uiModel.addAttribute("players", players);
+
+        logger.info("No. of players: " + players.size());
+
+        return "players/addGameResult";
     }
 
 }

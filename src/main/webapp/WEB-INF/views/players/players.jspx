@@ -8,30 +8,8 @@
 
 	<jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
 
-	<spring:message code="label_new_player" var = "newPlayerLabel"/>
-	<spring:message code="label_player_first_name" var = "firstNameLabel"/>
-	<spring:message code="label_player_last_name" var = "lastNameLabel"/>
-	<spring:message code="label_player_description" var = "descriptionLabel"/>
+	<spring:message code="menu_players" var="playersLabel"/>
 
-	<spring:url value="/players" var="playerUrl"/>
-
-	<table>
-		<thead>
-			<tr>
-				<th>${firstNameLabel}</th>
-				<th>${lastNameLabel}</th>
-				<th>${descriptionLabel}</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${players}" var="player">
-			<tr>
-				<td><a href="${playerUrl}/${player.id}"><c:out value="${player.firstName}"/></a></td>
-				<td><c:out value="${player.lastName}"/></td>
-				<td>${player.description}</td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<h1>${playersLabel}</h1>
 
 </div>
