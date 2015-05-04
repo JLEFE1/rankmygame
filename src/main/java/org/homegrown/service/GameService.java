@@ -13,10 +13,16 @@ public interface GameService {
 
     Game findById(final Long id);
 
+    Game findByBggId(final Long bggId);
+
     Game save(final Game game);
 
     Boardgames findGameOnBggByName(final String name);
 
     Boardgame findGameOnBggById(final Long id);
+
+    void saveBGGsInDb(final List<Boardgame> bggGame);
+
+    void saveBGGInDb(final Boardgame bggGame);
 
 }
