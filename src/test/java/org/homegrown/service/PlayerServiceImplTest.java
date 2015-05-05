@@ -31,10 +31,41 @@ public class PlayerServiceImplTest extends AbstractServiceImplTest {
     @Test
     public void testFindById() throws Exception {
 
+        Player player = playerService.findById(1L);
+
+        assertNotNull(player);
+        assertEquals("Clarence", player.getFirstName());
     }
 
     @Test
-    public void testFindByCriteria() throws Exception {
+    public void testFindByCriteriaFindAllWhenEmpty() throws Exception {
+
+        List<Player> result = playerService.findByCriteria(null, null);
+
+        assertNotNull(result);
+        assertEquals(12, result.size());
+
+    }
+
+    @Test
+    public void testFindByCriteriaFindOnWithCompleteName() throws Exception {
+
+        List<Player> result = playerService.findByCriteria("Clarence", "Ho");
+
+        Player player = result.get(0);
+        assertNotNull(player);
+        assertEquals("Clarence", player.getFirstName());
+
+    }
+
+    @Test
+    public void testFindByCriteriaFindOnWithPartialName() throws Exception {
+
+        List<Player> result = playerService.findByCriteria("are", "Ho");
+
+        Player player = result.get(0);
+        assertNotNull(player);
+        assertEquals("Clarence", player.getFirstName());
 
     }
 

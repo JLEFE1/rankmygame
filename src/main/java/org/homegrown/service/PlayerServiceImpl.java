@@ -63,13 +63,13 @@ public class PlayerServiceImpl implements PlayerService {
 
         // First Name
         if (firstName != null) {
-            javax.persistence.criteria.Predicate p = cb.like(playerRoot.get(Player_.firstName), firstName);
+            javax.persistence.criteria.Predicate p = cb.like(playerRoot.get(Player_.firstName), "%" + firstName + "%");
             criteria = cb.and(criteria, p);
         }
 
         // Last Name
         if (lastName != null) {
-            javax.persistence.criteria.Predicate p = cb.like(playerRoot.get(Player_.lastName), lastName);
+            javax.persistence.criteria.Predicate p = cb.like(playerRoot.get(Player_.lastName), "%" + lastName + "%");
             criteria = cb.and(criteria, p);
         }
 
