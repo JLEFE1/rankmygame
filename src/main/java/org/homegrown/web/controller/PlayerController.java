@@ -1,6 +1,7 @@
 package org.homegrown.web.controller;
 
 import org.homegrown.domain.Player;
+import org.homegrown.domain.search.PlayerSearchFields;
 import org.homegrown.service.PlayerService;
 import org.homegrown.web.form.Message;
 import org.homegrown.web.util.UrlUtil;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -71,14 +73,33 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "findPlayer", method = RequestMethod.GET)
-    public String findPlayer(ModelMap uiModel) {
+    public String searchPlayerResult(ModelMap uiModel) {
 
-        logger.info("Listing players");
+        PlayerSearchFields playerSearchFields = new PlayerSearchFields();
+        List<Player> players = new ArrayList<>();
 
-        List<Player> players = playerService.findAll();
         uiModel.addAttribute("players", players);
+        uiModel.addAttribute("playerSearchFields", playerSearchFields);
 
-        logger.info("No. of players: " + players.size());
+        return "players/findPlayer";
+    }
+
+    @RequestMapping(value = "findPlayer", method = RequestMethod.POST)
+    public String searchPlayer(final PlayerSearchFields playerSearchFields, BindingResult bindingResult, final ModelMap uiModel,
+                               HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes, Locale locale) {
+
+        logger.info("Searching for players");
+
+        List<Player> players;
+//        if ("".equals(playerSearchFields.getFirstName()) && "".equals(playerSearchFields.getLastName())){
+        if (playerSearchFields.getFirstName() == null && playerSearchFields.getLastName() == null){
+            players = playerService.findAll();
+        } else {
+            players = playerService.findByCriteria(playerSearchFields.getFirstName(), playerSearchFields.getLastName());
+        }
+
+        uiModel.addAttribute("players", players);
+        uiModel.addAttribute("playerSearchFields", playerSearchFields);
 
         return "players/findPlayer";
     }
