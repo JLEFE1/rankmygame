@@ -43,24 +43,11 @@
 
 	<c:if test="${not empty players}">
 		<div id="searchResult">
-			<table>
-				<thead>
-					<tr>
-						<th>${firstNameLabel}</th>
-						<th>${lastNameLabel}</th>
-						<th>${descriptionLabel}</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${players}" var="player">
-					<tr>
-						<td><a href="${playerUrl}/${player.id}"><c:out value="${player.firstName}"/></a></td>
-						<td><c:out value="${player.lastName}"/></td>
-						<td>${player.description}</td>
-					</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+
+			<c:forEach items="${players}" var="player">
+				<a href="${playerUrl}/${player.id}"><c:out value="${player.firstName} ${player.lastName}"/></a><br/>
+			</c:forEach>
+
 		</div>
 	</c:if>
 </div>
