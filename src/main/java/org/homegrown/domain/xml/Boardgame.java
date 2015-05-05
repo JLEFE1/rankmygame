@@ -5,16 +5,17 @@ import com.sun.xml.internal.txw2.annotation.*;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by JoLe on 28/04/15.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Boardgame {
+public class Boardgame implements Serializable {
 
     @XmlAttribute(name = "objectid")
-    private Integer objectid;
+    private Long objectid;
 
     @XmlElement(name = "name")
     private String name;
@@ -195,11 +196,11 @@ public class Boardgame {
         return yearpublished;
     }
 
-    public Integer getObjectid() {
+    public Long getObjectid() {
         return objectid;
     }
 
-    public void setObjectid(Integer objectid) {
+    public void setObjectid(Long objectid) {
         this.objectid = objectid;
     }
 

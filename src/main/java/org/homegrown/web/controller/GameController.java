@@ -45,6 +45,7 @@ public class GameController {
             games = gameService.findGameOnBggByName(lookUp);
             if (games.getBoardgames().size() != 0) {
                 form.getGames().addAll(games.getBoardgames());
+                gameService.saveBGGsInDb(games.getBoardgames());
             }
         }
 

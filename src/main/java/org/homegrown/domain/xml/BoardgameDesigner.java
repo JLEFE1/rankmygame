@@ -1,13 +1,14 @@
 package org.homegrown.domain.xml;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 /**
  * Created by JoLe on 28/04/15.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "boardgamedesigner")
-public class BoardgameDesigner {
+public class BoardgameDesigner implements Serializable {
 
     @XmlAttribute(name = "objectid")
     private Integer objectid;
