@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page"
 	 xmlns:spring="http://www.springframework.org/tags"
-	 xmlns:c="http://java.sun.com/jsp/jstl/core"
+	 xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:form="http://www.springframework.org/tags/form"
 	 version="2.0">
 
 	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
@@ -15,23 +15,17 @@
 
 	<spring:url value="/players" var="playerUrl"/>
 
-	<table>
-		<thead>
-			<tr>
-				<th>${firstNameLabel}</th>
-				<th>${lastNameLabel}</th>
-				<th>${descriptionLabel}</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${players}" var="player">
-			<tr>
-				<td><a href="${playerUrl}/${player.id}"><c:out value="${player.firstName}"/></a></td>
-				<td><c:out value="${player.lastName}"/></td>
-				<td>${player.description}</td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<script src="/scripts/form.js" type="text/javascript"><!--Prevent minimizing tag--></script>
+
+	<button onclick="addGameFunction()">Add game</button>
+	<button onclick="addPlayerFunction()">Add new player</button>
+
+	<div class="three">
+		<h2>Your Dynamic Form!</h2>
+		<form:form action="#" modelAttribute="rankedGameForm" id="rankedGameForm" method="post" enctype="multipart/form-data">
+			<span id="myForm"></span>
+			<p></p><input type="submit" value="Submit"/>
+		</form:form>
+	</div>
 
 </div>

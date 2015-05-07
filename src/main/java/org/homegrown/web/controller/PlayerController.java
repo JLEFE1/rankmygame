@@ -4,6 +4,7 @@ import org.homegrown.domain.Player;
 import org.homegrown.domain.search.PlayerSearchFields;
 import org.homegrown.service.PlayerService;
 import org.homegrown.web.form.Message;
+import org.homegrown.web.form.games.RankedGameForm;
 import org.homegrown.web.util.UrlUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -107,12 +108,29 @@ public class PlayerController {
     @RequestMapping(value = "addGameResult", method = RequestMethod.GET)
     public String addGameResult(ModelMap uiModel) {
 
-        logger.info("Listing players");
+        Player pl1 = new Player();
+        pl1.setFirstName("Fn1");
+        pl1.setLastName("Ln1");
+        Player pl2 = new Player();
+        pl2.setFirstName("Fn2");
+        pl2.setLastName("Ln2");
 
-        List<Player> players = playerService.findAll();
-        uiModel.addAttribute("players", players);
+        RankedGameForm rankedGameForm = new RankedGameForm();
+        rankedGameForm.addPlayer(pl1);
+        rankedGameForm.addPlayer(pl2);
+        uiModel.addAttribute("rankedGameForm", rankedGameForm);
 
-        logger.info("No. of players: " + players.size());
+
+        return "players/addGameResult";
+    }
+
+    @RequestMapping(value = "addGameResult", method = RequestMethod.POST)
+    public String addGameResult(final RankedGameForm form, ModelMap uiModel) {
+
+
+        RankedGameForm rankedGameForm = new RankedGameForm();
+        uiModel.addAttribute("rankedGameForm", rankedGameForm);
+
 
         return "players/addGameResult";
     }
