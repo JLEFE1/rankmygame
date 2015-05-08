@@ -25,7 +25,10 @@
 		<form:form action="#" modelAttribute="rankedGameForm" id="rankedGameForm" method="post" enctype="multipart/form-data">
 			<span id="myForm"></span>
 			<p></p><input type="submit" value="Submit"/>
-		</form:form>
-	</div>
 
+			<!--<form:input type="text" placeholder="Name of player" path="playerNames[0]"/>
+			<form:input type="text" placeholder="Name of player" path="playerNames[1]"/>-->
+
+	</form:form>
+	</div>
 </div>

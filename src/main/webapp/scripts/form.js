@@ -34,11 +34,11 @@ function addPlayerFunction(){
     var r = document.createElement('span');
     var y = document.createElement("INPUT");
     y.setAttribute("type", "text");
-    y.setAttribute("placeholder", "Name");
+    y.setAttribute("placeholder", "Name of player");
     var g = document.createElement("IMG");
     g.setAttribute("src", "/images/delete.png");
     increment();
-    y.setAttribute("Name", "textelement_" + i);
+    y.setAttribute("path", "players[" + i + "]");
     r.appendChild(y);
     g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
     r.appendChild(g);
@@ -56,7 +56,7 @@ function addGameFunction(){
     var r = document.createElement('span');
     var y = document.createElement("INPUT");
     y.setAttribute("type", "text");
-    y.setAttribute("placeholder", "Email");
+    y.setAttribute("placeholder", "Played game");
     var g = document.createElement("IMG");
     g.setAttribute("src", "/images/delete.png");
     increment();

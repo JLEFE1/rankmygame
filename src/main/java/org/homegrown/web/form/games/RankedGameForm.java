@@ -41,6 +41,9 @@ public class RankedGameForm {
     }
 
     public String[] getPlayerNames() {
+        if (playerNames == null){
+            playerNames = new String[10];
+        }
         return playerNames;
     }
 

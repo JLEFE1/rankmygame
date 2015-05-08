@@ -118,6 +118,7 @@ public class PlayerController {
         RankedGameForm rankedGameForm = new RankedGameForm();
         rankedGameForm.addPlayer(pl1);
         rankedGameForm.addPlayer(pl2);
+
         uiModel.addAttribute("rankedGameForm", rankedGameForm);
 
 
