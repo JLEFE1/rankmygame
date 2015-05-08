@@ -16,18 +16,18 @@
       <column name="BGG_OBJECT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="VERSION" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <exported-key name="FK_RANKABLEGAME_2" table="RANKABLEGAMES" schema="" catalog="GAMESRANKING" columns="BGG_OBJECT_ID"/>
+      <exported-key name="FK_PLAYEDGAME_3" table="PLAYEDGAMES" schema="" catalog="GAMESRANKING" columns="GAME_ID"/>
       <index name="unique_BGG_OBJECT_ID" unique="true" columns="BGG_OBJECT_ID"/>
       <index name="UQ_CONTACT_1" unique="true" columns="GAME_TITLE,DESIGNER"/>
     </table>
     <table name="PLAYEDGAMES" schema="" catalog="GAMESRANKING" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="RANKABLEGAME_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="GAME_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="PLAYING_DATE" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="FK_RANKABLEGAME_1" columns="RANKABLEGAME_ID" ref-table="RANKABLEGAMES" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_PLAYEDGAME_3" columns="GAME_ID" ref-table="GAMES" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FK_PLAYEDGAME_1" table="PLAYERRESULTS" schema="" catalog="GAMESRANKING" columns="PLAYEDGAME_ID"/>
-      <index name="UQ_RANKABLEGAME_ID_PLAYING_DATE" unique="true" columns="RANKABLEGAME_ID,PLAYING_DATE"/>
+      <index name="UQ_RANKABLEGAME_ID_PLAYING_DATE" unique="true" columns="GAME_ID,PLAYING_DATE"/>
     </table>
     <table name="PLAYER" schema="" catalog="GAMESRANKING" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -70,14 +70,6 @@
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="FK_PLAYER_TEL_DETAIL_1" columns="PLAYER_ID" ref-table="PLAYER" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="UQ_PLAYER_TEL_DETAIL_1" unique="true" columns="PLAYER_ID,TEL_TYPE"/>
-    </table>
-    <table name="RANKABLEGAMES" schema="" catalog="GAMESRANKING" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="BGG_OBJECT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="FK_RANKABLEGAME_2" columns="BGG_OBJECT_ID" ref-table="GAMES" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="BGG_OBJECT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_RANKABLEGAME_1" table="PLAYEDGAMES" schema="" catalog="GAMESRANKING" columns="RANKABLEGAME_ID"/>
-      <index name="UQ_BGG_OBJECT_ID" unique="true" columns="BGG_OBJECT_ID"/>
     </table>
   </data-source>
 </component>

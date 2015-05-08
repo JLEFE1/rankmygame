@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="368631505">
+  <component name="DataSourceManagerImpl" format="xml" hash="3687539208">
     <data-source source="LOCAL" name="MySQL - GAMESRANKING@localhost" uuid="8cd8303b-9074-43ea-8f94-de01c21d11a5">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
