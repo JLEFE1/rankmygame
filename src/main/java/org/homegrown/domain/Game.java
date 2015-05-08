@@ -2,6 +2,7 @@ package org.homegrown.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -32,6 +33,9 @@ public class Game implements Serializable {
     @Column(name = "VERSION")
     @Version
     private int version;
+
+    @OneToMany(mappedBy = "game", cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<PlayedGame> playedGames;
 
     public String getArtist() {
         return artist;
@@ -91,5 +95,13 @@ public class Game implements Serializable {
 
     public String toString() {
         return "Game title: " + gameTitle;
+    }
+
+    public List<PlayedGame> getPlayedGames() {
+        return playedGames;
+    }
+
+    public void setPlayedGames(List<PlayedGame> playedGames) {
+        this.playedGames = playedGames;
     }
 }

@@ -1,8 +1,10 @@
 package org.homegrown.web.controller;
 
+import org.homegrown.domain.PlayedGame;
 import org.homegrown.domain.xml.Boardgame;
 import org.homegrown.domain.xml.Boardgames;
 import org.homegrown.service.GameService;
+import org.homegrown.service.PlayedGameService;
 import org.homegrown.web.form.games.FindGameForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * Created by JoLe on 22/04/15.
@@ -22,6 +26,9 @@ public class GameController {
 
     @Autowired
     private GameService gameService;
+
+    @Autowired
+    private PlayedGameService playedGameService;
 
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String newGame(Model uiModel) {
@@ -37,7 +44,9 @@ public class GameController {
 
     @RequestMapping(value = "/lastgames", method = RequestMethod.GET)
     public String lastGames(Model uimodel){
-        uimodel.addAttribute("form", new FindGameForm());
+
+        PlayedGame game = playedGameService.findById(3L);
+
         return "games/lastgames";
     }
 

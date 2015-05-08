@@ -20,13 +20,13 @@ public class PlayedGame {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "RANKABLEGAME_ID")
-    private RankableGame rankableGame;
+    @JoinColumn(name = "GAME_ID")
+    private Game game;
 
-    @Column(name = "DATE")
+    @Column(name = "PLAYING_DATE")
     private Date date;
 
-    @OneToMany(mappedBy = "playedGame", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "playedGame", cascade=CascadeType.ALL, orphanRemoval=true, fetch = FetchType.EAGER)
     private List<PlayerResult> playerResults;
 
     @PrePersist
@@ -51,8 +51,8 @@ public class PlayedGame {
         this.date = date;
     }
 
-    public RankableGame getRankableGame() {
-        return rankableGame;
+    public Game getRankableGame() {
+        return game;
     }
 
     public List<PlayerResult> getPlayerResults() {
@@ -63,8 +63,8 @@ public class PlayedGame {
         this.playerResults = playerResults;
     }
 
-    public void setRankableGame(RankableGame rankableGame) {
-        this.rankableGame = rankableGame;
+    public void setRankableGame(Game gameame) {
+        this.game = game;
     }
 
 
