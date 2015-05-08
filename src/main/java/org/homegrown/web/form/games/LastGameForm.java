@@ -2,6 +2,7 @@ package org.homegrown.web.form.games;
 
 import org.homegrown.domain.PlayerResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,16 @@ public class LastGameForm {
     private String gameTitle;
 
     private List<PlayerResult> results;
+
+    public LastGameForm(){
+
+    }
+
+    public LastGameForm(final String gameTitle, final List<PlayerResult> results) {
+        this.gameTitle = gameTitle;
+        this.results = new ArrayList<>();
+        this.results.addAll(results);
+    }
 
     public String getGameTitle() {
         return gameTitle;

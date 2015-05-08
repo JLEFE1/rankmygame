@@ -6,6 +6,7 @@ import org.homegrown.domain.xml.Boardgames;
 import org.homegrown.service.GameService;
 import org.homegrown.service.PlayedGameService;
 import org.homegrown.web.form.games.FindGameForm;
+import org.homegrown.web.form.games.LastGameForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +47,9 @@ public class GameController {
     public String lastGames(Model uimodel){
 
         PlayedGame game = playedGameService.findById(3L);
+
+        LastGameForm form = new LastGameForm(game.getRankableGame().getGameTitle(), game.getPlayerResults());
+        uimodel.addAttribute("form", form);
 
         return "games/lastgames";
     }

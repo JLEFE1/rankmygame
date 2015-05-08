@@ -13,10 +13,8 @@
 	<script src="/scripts/jquery-2.1.4.min.js"><!--Prevent minimizing script tag--></script>
 	<script src="/scripts/lastGames.js"><!--Prevent minimizing script tag--></script>
 
-	<h1>${newGameLabel}</h1>
+	<h1>${form.gameTitle}</h1>
 
-	<c:if test="${not empty gameString}">
-		${gameString}
-	</c:if>
+
 
 </div>
