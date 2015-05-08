@@ -39,6 +39,11 @@
         <put-attribute name="current" value="player" cascade="true"/>
     </definition>
 
+    <definition name="games/lastgames" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/lastGames.jspx" />
+        <put-attribute name="current" value="player" cascade="true"/>
+    </definition>
+
     <definition name="disclaimer" extends="default">
         <put-attribute name="body" value="/WEB-INF/views/disclaimer.jspx" />
         <put-attribute name="current" value="disclaimer" cascade="true"/>

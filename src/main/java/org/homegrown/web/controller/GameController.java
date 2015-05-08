@@ -35,6 +35,12 @@ public class GameController {
         return "games/find";
     }
 
+    @RequestMapping(value = "/lastgames", method = RequestMethod.GET)
+    public String lastGames(Model uimodel){
+        uimodel.addAttribute("form", new FindGameForm());
+        return "games/lastgames";
+    }
+
     @RequestMapping(value = "/find", method = RequestMethod.POST)
     public String foundGameInBGG(FindGameForm form, Model uimodel){
 
