@@ -12,6 +12,8 @@
 
 	<h1>${newGameLabel}</h1>
 
+	<span class="ui-icon ui-icon-arrowthick-1-n"></span>
+
 	<c:if test="${not empty gameString}">
 		${gameString}
 	</c:if>

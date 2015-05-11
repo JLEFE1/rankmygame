@@ -426,3 +426,44 @@ fieldset th {
 	height: 11px;
 	width: 16px;
 }
+
+/* CSS for jQuery*/
+.game {
+	list-style: none;
+}
+#playerStats {
+	width:25%;
+}
+
+.title {
+	width:25%;
+}
+
+.result, .resultName {
+	margin: 0;
+	padding: 2px 6px;
+}
+.resultName {
+	display: block;
+	margin: 0;
+	padding: 2px 6px;
+	color: #000000;
+}
+.result {
+	display: none;
+	margin: 0;
+	padding: 2px 6px;
+	color: #1baa19;
+}
+.winner {
+	display: none;
+	margin: 0;
+	padding: 2px 6px;
+	color: #1baa19;
+	-webkit-transform:  matrix(0.96592583, 0.25881905, -0.25881905, 0.96592583, 0, 0);
+}
+.highlighted {
+	background-color: #563;
+	border-color: 1px solid #967;
+	font-weight: bold;
+}
