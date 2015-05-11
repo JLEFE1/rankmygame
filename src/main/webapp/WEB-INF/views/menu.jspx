@@ -26,18 +26,18 @@
 
     <a href="${addHomeUrl}"><h1 class="${current == 'home' ? 'active' : ''}">${menuLabel}</h1></a>
     <ul>
-        <li><a href="${addPlayerUrl}"><h2 class="${current == 'players' ? 'active' : ''}">${playersLabel}</h2></a></li>
+        <li><a href="${addPlayerUrl}"><h2 class="${current == 'players' ? 'active' : ''}">${playersLabel}</h2></a>
         <c:if test="${current == 'players' ? true : false}">
             <ul>
                 <li><h3 class="active">Test</h3></li>
             </ul>
-        </c:if>
-        <li><a href="${addGameUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${gamesLabel}</h2></a></li>
+        </c:if></li>
+        <li><a href="${addGameUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${gamesLabel}</h2></a>
         <c:if test="${current == 'games' ? true : false}">
             <ul>
                 <li><a href="${findGameUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${findGamesLabel}</h2></a></li>
                 <li><a href="${lastGamesUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${lastGamesLabel}</h2></a></li>
             </ul>
-        </c:if>
+        </c:if></li>
     </ul>
 </div>
