@@ -32,6 +32,8 @@
     <tilesx:useAttribute name="mainMenu"/>
     <tilesx:useAttribute name="subMenu"/>
 
+    <script src="/scripts/menu.js" type="text/javascript"><!--Prevent minimizing tag--></script>
+
     <a href="${addHomeUrl}"><h1 class="${mainMenu == 'home' ? 'active' : ''}">${menuLabel}</h1></a>
     <ul>
         <li><a href="${playerUrl}"><h2>${playersLabel}</h2></a></li>

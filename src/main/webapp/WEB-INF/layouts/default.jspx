@@ -18,6 +18,9 @@
 		<spring:url value="/${app_css}" var="app_css_url" />
 		<link rel="styleSheet" type="text/css" media="screen" href="${app_css_url}" />
 
+		<script src="/scripts/jquery-2.1.4.min.js"><!--Prevent minimizing script tag--></script>
+		<script src="/scripts/jquery-ui.min.js"><!--Prevent minimizing script tag--></script>
+
 	</head>
 	
   	<body class="tundra spring">

@@ -10,7 +10,6 @@
 
 	<spring:message code="label_new_game" var = "newGameLabel"/>
 
-	<script src="/scripts/jquery-2.1.4.min.js"><!--Prevent minimizing script tag--></script>
 	<script src="/scripts/lastGames.js"><!--Prevent minimizing script tag--></script>
 
 	<div id="listedGames">
