@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	 xmlns:spring="http://www.springframework.org/tags"
+	 xmlns:c="http://java.sun.com/jsp/jstl/core"
+	 version="2.0">
+
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" omit-xml-declaration="yes"/>
+
+	<jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+
+	<spring:message code="label_new_game" var = "newGameLabel"/>
+
+	<script src="/scripts/jquery-2.1.4.min.js"><!--Prevent minimizing script tag--></script>
+	<script src="/scripts/lastGames.js"><!--Prevent minimizing script tag--></script>
+
+	<h1>${form.gameTitle}</h1>
+
+
+
+</div>

@@ -13,11 +13,21 @@
       <column name="DESIGNER" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
       <column name="PUBLISHER" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
       <column name="ARTIST" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
-      <column name="BGG_OBJECT_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="BGG_OBJECT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="VERSION" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <exported-key name="FK_GAME_2" table="RANKING" schema="" catalog="GAMESRANKING" columns="GAME_ID"/>
+      <exported-key name="FK_PLAYEDGAME_3" table="PLAYEDGAMES" schema="" catalog="GAMESRANKING" columns="GAME_ID"/>
+      <index name="unique_BGG_OBJECT_ID" unique="true" columns="BGG_OBJECT_ID"/>
       <index name="UQ_CONTACT_1" unique="true" columns="GAME_TITLE,DESIGNER"/>
+    </table>
+    <table name="PLAYEDGAMES" schema="" catalog="GAMESRANKING" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="GAME_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="PLAYING_DATE" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FK_PLAYEDGAME_3" columns="GAME_ID" ref-table="GAMES" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_PLAYEDGAME_1" table="PLAYERRESULTS" schema="" catalog="GAMESRANKING" columns="PLAYEDGAME_ID"/>
+      <index name="UQ_RANKABLEGAME_ID_PLAYING_DATE" unique="true" columns="GAME_ID,PLAYING_DATE"/>
     </table>
     <table name="PLAYER" schema="" catalog="GAMESRANKING" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -28,10 +38,21 @@
       <column name="PHOTO" sqlType="BLOB" precision="65535" scale="0" nullable="true" jdbcType="-4"/>
       <column name="VERSION" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FK_PLAYER_2" table="PLAYERRESULTS" schema="" catalog="GAMESRANKING" columns="PLAYER_ID"/>
       <exported-key name="FK_PLAYER_EMAIL_DETAIL_1" table="PLAYER_EMAIL_DETAIL" schema="" catalog="GAMESRANKING" columns="PLAYER_ID"/>
       <exported-key name="FK_PLAYER_TEL_DETAIL_1" table="PLAYER_TEL_DETAIL" schema="" catalog="GAMESRANKING" columns="PLAYER_ID"/>
-      <exported-key name="FK_PLAYER_1" table="RANKING" schema="" catalog="GAMESRANKING" columns="PLAYER_ID"/>
       <index name="UQ_PLAYER_1" unique="true" columns="FIRST_NAME,LAST_NAME"/>
+    </table>
+    <table name="PLAYERRESULTS" schema="" catalog="GAMESRANKING" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PLAYEDGAME_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PLAYER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="RANK" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FK_PLAYEDGAME_1" columns="PLAYEDGAME_ID" ref-table="PLAYEDGAMES" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_PLAYER_2" columns="PLAYER_ID" ref-table="PLAYER" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UQ_PLAYEDGAME_ID_PLAYER_ID_RANK" unique="true" columns="PLAYEDGAME_ID,PLAYER_ID,RANK"/>
+      <index name="FK_PLAYER_2" unique="false" columns="PLAYER_ID"/>
     </table>
     <table name="PLAYER_EMAIL_DETAIL" schema="" catalog="GAMESRANKING" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -49,16 +70,6 @@
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="FK_PLAYER_TEL_DETAIL_1" columns="PLAYER_ID" ref-table="PLAYER" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="UQ_PLAYER_TEL_DETAIL_1" unique="true" columns="PLAYER_ID,TEL_TYPE"/>
-    </table>
-    <table name="RANKING" schema="" catalog="GAMESRANKING" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="PLAYER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="GAME_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="FK_GAME_2" columns="GAME_ID" ref-table="GAMES" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_PLAYER_1" columns="PLAYER_ID" ref-table="PLAYER" ref-schema="" ref-catalog="GAMESRANKING" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="UQ_PLAYER_ID_GAME_ID" unique="true" columns="PLAYER_ID,GAME_ID"/>
-      <index name="FK_GAME_2" unique="false" columns="GAME_ID"/>
     </table>
   </data-source>
 </component>

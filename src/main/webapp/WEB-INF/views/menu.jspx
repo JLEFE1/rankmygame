@@ -13,9 +13,11 @@
     <spring:message code="menu_players" var="playersLabel"/>
     <spring:message code="menu_games" var="gamesLabel"/>
     <spring:message code="menu_find_games" var="findGamesLabel"/>
+    <spring:message code="menu_last_games" var="lastGamesLabel"/>
 
     <spring:url value="/games?form" var="addGameUrl"/>
     <spring:url value="/games/find" var="findGameUrl"/>
+    <spring:url value="/games/lastgames" var="lastGamesUrl"/>
     <spring:url value="/players?form" var="addPlayerUrl"/>
     <spring:url value="/" var="addHomeUrl"/>
 
@@ -34,6 +36,7 @@
         <c:if test="${current == 'games' ? true : false}">
             <ul>
                 <li><a href="${findGameUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${findGamesLabel}</h2></a></li>
+                <li><a href="${lastGamesUrl}"><h2 class="${current == 'games' ? 'active' : ''}">${lastGamesLabel}</h2></a></li>
             </ul>
         </c:if>
     </ul>
