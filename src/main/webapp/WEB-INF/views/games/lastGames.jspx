@@ -13,8 +13,38 @@
 	<script src="/scripts/jquery-2.1.4.min.js"><!--Prevent minimizing script tag--></script>
 	<script src="/scripts/lastGames.js"><!--Prevent minimizing script tag--></script>
 
-	<h1>${form.gameTitle}</h1>
+	<div id="listedGames">
 
+		<h1>Recently played games</h1>
+		<ul>
 
+			<li class="game">
+				<div class="title">
+					<h2>${form.gameTitle}</h2>
+				</div>
+				<div class="winner">
+					<span> Player won this game!</span>
+				</div>
+
+				<c:forEach items="${form.results}" var="result">
+					<div id="playerStats">
+						<span class="resultName">${result.player.firstName} ${result.player.lastName}</span>
+						<span class="result">${result.rank}</span>
+						<span class="result">1234</span>
+					</div>
+				</c:forEach>
+
+				<!--
+				<ul class="photos">
+					<li>
+						<img src="/assets/photos/newyork1.jpg">
+						<span>Notre Dame de Paris</span>
+					</li>
+				</ul>
+				-->
+			</li>
+		</ul>
+
+	</div>
 
 </div>
