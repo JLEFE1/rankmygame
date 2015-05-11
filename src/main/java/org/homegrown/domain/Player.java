@@ -77,7 +77,7 @@ public class Player implements Serializable {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = firstName.toLowerCase();
     }
 
     public String getLastName() {
@@ -85,7 +85,7 @@ public class Player implements Serializable {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName = lastName.toLowerCase();
     }
 
     public List<PlayerResult> getPlayerResults() {

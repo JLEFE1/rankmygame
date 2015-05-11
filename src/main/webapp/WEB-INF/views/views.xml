@@ -4,55 +4,73 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
+    <!-- Global pages -->
     <definition name="home" extends="default">
         <put-attribute name="body" value="/WEB-INF/views/home.jspx" />
-        <put-attribute name="current" value="home" cascade="true"/>
-    </definition>
-
-    <definition name="players/playerlist" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/players/players.jspx" />
-        <put-attribute name="current" value="players" cascade="true"/>
-    </definition>
-
-    <definition name="players/show" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/players/show.jspx" />
-        <put-attribute name="current" value="player" cascade="true"/>
-    </definition>
-
-    <definition name="players/updateForm" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/players/updatePlayer.jspx" />
-        <put-attribute name="current" value="updatePlayer" cascade="true"/>
-    </definition>
-
-    <definition name="games" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/games/games.jspx" />
-        <put-attribute name="current" value="games" cascade="true"/>
-    </definition>
-
-    <definition name="games/find" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/games/findGames.jspx" />
-        <put-attribute name="current" value="games" cascade="true"/>
-    </definition>
-
-    <definition name="games/game/show" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/games/showGame.jspx" />
-        <put-attribute name="current" value="player" cascade="true"/>
-    </definition>
-
-    <definition name="games/lastgames" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/games/lastGames.jspx" />
-        <put-attribute name="current" value="player" cascade="true"/>
+        <put-attribute name="mainMenu" value="home" cascade="true"/>
+        <put-attribute name="subMenu" value="home" cascade="true"/>
     </definition>
 
     <definition name="disclaimer" extends="default">
         <put-attribute name="body" value="/WEB-INF/views/disclaimer.jspx" />
-        <put-attribute name="current" value="disclaimer" cascade="true"/>
+        <put-attribute name="mainMenu" value="disclaimer" cascade="true"/>
+        <put-attribute name="subMenu" value="disclaimer" cascade="true"/>
     </definition>
 
     <definition name="contact" extends="default">
         <put-attribute name="body" value="/WEB-INF/views/contact.jspx" />
-        <put-attribute name="current" value="contact" cascade="true"/>
+        <put-attribute name="mainMenu" value="contact" cascade="true"/>
+        <put-attribute name="subMenu" value="contact" cascade="true"/>
     </definition>
 
+    <!-- Pages related to players menu drop down -->
+    <definition name="players" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/players.jspx" />
+        <put-attribute name="mainMenu" value="players" cascade="true"/>
+        <put-attribute name="subMenu" value="players" cascade="true"/>
+    </definition>
+
+    <definition name="players/findPlayer" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/findPlayer.jspx" />
+        <put-attribute name="mainMenu" value="players" cascade="true"/>
+        <put-attribute name="subMenu" value="findPlayer" cascade="true"/>
+    </definition>
+
+    <definition name="players/addGameResult" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/addGameResult.jspx" />
+        <put-attribute name="mainMenu" value="players" cascade="true"/>
+        <put-attribute name="subMenu" value="addGameResult" cascade="true"/>
+    </definition>
+
+    <definition name="players/show" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/show.jspx" />
+        <put-attribute name="mainMenu" value="players" cascade="true"/>
+        <put-attribute name="subMenu" value="player" cascade="true"/>
+    </definition>
+
+    <definition name="players/updateForm" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/updatePlayer.jspx" />
+        <put-attribute name="mainMenu" value="players" cascade="true"/>
+        <put-attribute name="subMenu" value="updatePlayer" cascade="true"/>
+    </definition>
+
+    <!-- Pages related to games menu drop down -->
+    <definition name="games" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/games.jspx" />
+        <put-attribute name="mainMenu" value="games" cascade="true"/>
+        <put-attribute name="subMenu" value="games" cascade="true"/>
+    </definition>
+
+    <definition name="games/find" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/findGames.jspx" />
+        <put-attribute name="mainMenu" value="games" cascade="true"/>
+        <put-attribute name="subMenu" value="findGame" cascade="true"/>
+    </definition>
+
+    <definition name="games/game/show" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/games/showGame.jspx" />
+        <put-attribute name="mainMenu" value="games" cascade="true"/>
+        <put-attribute name="subMenu" value="showGame" cascade="true"/>
+    </definition>
 
 </tiles-definitions>

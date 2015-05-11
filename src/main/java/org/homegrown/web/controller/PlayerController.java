@@ -1,8 +1,10 @@
 package org.homegrown.web.controller;
 
 import org.homegrown.domain.Player;
+import org.homegrown.domain.search.PlayerSearchFields;
 import org.homegrown.service.PlayerService;
 import org.homegrown.web.form.Message;
+import org.homegrown.web.form.games.RankedGameForm;
 import org.homegrown.web.util.UrlUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -65,17 +68,72 @@ public class PlayerController {
         return "redirect:/players/" + UrlUtil.encodeUrlPathSegment(player.getId().toString(), httpServletRequest);
     }
 
-    @RequestMapping(params = "form", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getPlayerList(ModelMap uiModel) {
+        return "players";
+    }
 
-        logger.info("Listing players");
+    @RequestMapping(value = "findPlayer", method = RequestMethod.GET)
+    public String searchPlayerResult(ModelMap uiModel) {
 
-        List<Player> players = playerService.findAll();
+        PlayerSearchFields playerSearchFields = new PlayerSearchFields();
+        List<Player> players = new ArrayList<>();
+
         uiModel.addAttribute("players", players);
+        uiModel.addAttribute("playerSearchFields", playerSearchFields);
 
-        logger.info("No. of players: " + players.size());
+        return "players/findPlayer";
+    }
 
-        return "players/playerlist";
+    @RequestMapping(value = "findPlayer", method = RequestMethod.POST)
+    public String searchPlayer(final PlayerSearchFields playerSearchFields, BindingResult bindingResult, final ModelMap uiModel,
+                               HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes, Locale locale) {
+
+        logger.info("Searching for players");
+
+        List<Player> players;
+//        if ("".equals(playerSearchFields.getFirstName()) && "".equals(playerSearchFields.getLastName())){
+        if (playerSearchFields.getFirstName() == null && playerSearchFields.getLastName() == null){
+            players = playerService.findAll();
+        } else {
+            players = playerService.findByCriteria(playerSearchFields.getFirstName(), playerSearchFields.getLastName());
+        }
+
+        uiModel.addAttribute("players", players);
+        uiModel.addAttribute("playerSearchFields", playerSearchFields);
+
+        return "players/findPlayer";
+    }
+
+    @RequestMapping(value = "addGameResult", method = RequestMethod.GET)
+    public String addGameResult(ModelMap uiModel) {
+
+        Player pl1 = new Player();
+        pl1.setFirstName("Fn1");
+        pl1.setLastName("Ln1");
+        Player pl2 = new Player();
+        pl2.setFirstName("Fn2");
+        pl2.setLastName("Ln2");
+
+        RankedGameForm rankedGameForm = new RankedGameForm();
+        rankedGameForm.addPlayer(pl1);
+        rankedGameForm.addPlayer(pl2);
+
+        uiModel.addAttribute("rankedGameForm", rankedGameForm);
+
+
+        return "players/addGameResult";
+    }
+
+    @RequestMapping(value = "addGameResult", method = RequestMethod.POST)
+    public String addGameResult(final RankedGameForm form, ModelMap uiModel) {
+
+
+        RankedGameForm rankedGameForm = new RankedGameForm();
+        uiModel.addAttribute("rankedGameForm", rankedGameForm);
+
+
+        return "players/addGameResult";
     }
 
 }

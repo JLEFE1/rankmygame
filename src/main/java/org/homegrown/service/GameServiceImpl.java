@@ -32,7 +32,7 @@ public class GameServiceImpl implements GameService {
     Logger logger = LoggerFactory.getLogger(GameServiceImpl.class);
 
     @Autowired
-    ImportBGGGamesSender sender;
+    private ImportBGGGamesSender messageSender;
 
     @Autowired
     private GameRepository gameRepo;
@@ -96,7 +96,7 @@ public class GameServiceImpl implements GameService {
         Game game = gameRepo.findByBggId(bggGame.getObjectid());
 
         if (game == null){
-            sender.sendMessage(bggGame);
+            messageSender.sendMessage(bggGame);
         } else {
             logger.info( game.getGameTitle() + " already exists in DB");
         }
