@@ -1,5 +1,17 @@
 /*Script file to automate menu*/
 $(document).ready(function() {
+    //Get the values corresponding with the main page that is displayed
+    var mainMenu = document.getElementsByName("mainMenu")[0].value;
+    var subMenu = document.getElementsByName("subMenu")[0].value;
+
+    if(mainMenu === "players"){
+        $("#players").addClass('show');
+        $("#playersMain").addClass('selected');
+    } else if (mainMenu === "games"){
+        $("#games").addClass('show');
+        $("#gamesMain").addClass('selected');
+    }
+
 
     //Get all the LI from the #tabMenu UL
     $('#tabMenu li').click(function(){

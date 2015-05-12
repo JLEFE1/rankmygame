@@ -35,18 +35,31 @@
 
     <script src="/scripts/menu.js" type="text/javascript"><!--PreventMinimizingTag--></script>
 
+    <tilesx:useAttribute name="mainMenu"/>
+    <tilesx:useAttribute name="subMenu"/>
+
+
+    <!--
+        class="show": which parent div is showed ()
+        class="selected": the tab that is selected. Should be players add home tab and ...
+    -->
+
     <div class="box">
 
+        <input type="hidden" name="mainMenu" value="${mainMenu}"/>
+        <!--document.getElementsByName("mainMenu")[0].value-->
+        <input type="hidden" name="subMenu" value="${subMenu}"/>
+
         <ul id="tabMenu">
-            <li class="selected"><img src="/images/icon_players.svg"></img></li>
-            <li><img src="/images/icon_games.svg"></img></li>
-            <li><img src="/images/icon_medaille.svg"></img></li>
+            <li id="playersMain"><img src="/images/icon_players.svg"></img></li>
+            <li id="gamesMain"><img src="/images/icon_games.svg"></img></li>
+            <li id="rankMain"><img src="/images/icon_medaille.svg"></img></li>
         </ul>
 
         <div class="boxTop"><!--PreventMinimizingTag--></div>
 
         <div class="boxBody">
-            <div id="players" class="show parent">
+            <div id="players" class="parent">
                 <ul>
                     <ul>
                         <li><a href="${findPlayerUrl}"><img src="/images/icon_games.svg"></img><h3>${findPlayerLabel}</h3></a></li>
