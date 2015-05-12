@@ -28,17 +28,13 @@
     <spring:url value="/players/addGameResult" var="addGameResultUrl"/>
     <spring:url value="/" var="addHomeUrl"/>
 
-
-    <tilesx:useAttribute name="mainMenu"/>
-    <tilesx:useAttribute name="subMenu"/>
-
     <script src="/scripts/menu.js" type="text/javascript"><!--PreventMinimizingTag--></script>
 
     <div class="box">
 
         <ul id="tabMenu">
-            <li class="posts selected"></li>
-            <li class="comments"></li>
+            <li class="selected"><img src="/images/icon_players.svg"></img></li>
+            <li><img src="/images/icon_firstplace.svg"></img></li>
         </ul>
 
         <div class="boxTop"><!--PreventMinimizingTag--></div>
@@ -47,15 +43,15 @@
             <div id="posts" class="show parent">
                 <ul>
                     <ul>
-                        <li><a href="${findPlayerUrl}"><h3 class="${subMenu == 'findPlayer' ? 'active' : ''}">${findPlayerLabel}</h3></a></li>
-                        <li><a href="${addGameResultUrl}"><h3 class="${subMenu == 'addGameResult' ? 'active' : ''}">${addResultLabel}</h3></a></li>
+                        <li><a href="${findPlayerUrl}"><h3>${findPlayerLabel}</h3></a></li>
+                        <li><a href="${addGameResultUrl}"><h3>${addResultLabel}</h3></a></li>
                     </ul>
                 </ul>
             </div>
 
             <div id="comments" class="parent">
                 <ul>
-                    <li><a href="${findGameUrl}"><h3 class="${subMenu == 'findGame' ? 'active' : ''}">${findGamesLabel}</h3></a></li>
+                    <li><a href="${findGameUrl}"><h3>${findGamesLabel}</h3></a></li>
                 </ul>
             </div>
 

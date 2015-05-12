@@ -36,7 +36,7 @@ function addPlayerFunction(){
     y.setAttribute("type", "text");
     y.setAttribute("placeholder", "Name of player");
     var g = document.createElement("IMG");
-    g.setAttribute("src", "/images/delete.png");
+    g.setAttribute("src", "/images/icon_deleteplayer.svg");
     increment();
     y.setAttribute("path", "players[" + i + "]");
     r.appendChild(y);
@@ -58,7 +58,7 @@ function addGameFunction(){
     y.setAttribute("type", "text");
     y.setAttribute("placeholder", "Played game");
     var g = document.createElement("IMG");
-    g.setAttribute("src", "/images/delete.png");
+    g.setAttribute("src", "/images/icon_deleteplayer.svg");
     increment();
     y.setAttribute("Name", "textelement_" + i);
     r.appendChild(y);
