@@ -28,24 +28,7 @@
 	</head>
 	
   	<body class="tundra spring">
-
-	<!--
-	<div id="headerWrapper">
-  	        <tiles:insertAttribute name="header" ignore="true" />
-  	    </div>
-   		<div id="wrapper">
-			<div id="menuWrapper">
-		    	<tiles:insertAttribute name="menu" ignore="true" />
-			</div>
-		    <div id="main">
-	    		<tiles:insertAttribute name="body"/> 
-			</div>
-		</div>
-		<div id="footerWrapper">
-			<tiles:insertAttribute name="footer" ignore="true"/>
-		</div>
-	-->
-
+	
 	<div id="container">
 
 		<nav>
