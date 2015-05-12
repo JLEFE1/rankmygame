@@ -5,7 +5,8 @@
 body{
     font-family: 'Abril Fatface', cursive;
     margin-bottom: 120px;
-    background:url("/styles/images/Elegant_Background-1.jpg");
+    background:url("/styles/images/Elegant_Background-10.jpg");
+    color:#ccc;
 }
 
 .container {
@@ -14,11 +15,12 @@ body{
 @media screen and (min-width:600px) {
     nav {
         float: left;
-        width: 25%;
+        width: 18%;
     }
 
     section {
-        margin-left: 25%;
+        margin-left: 18%;
+        padding-left: 5%;
     }
 }
 @media screen and (max-width:599px) {
@@ -32,14 +34,9 @@ footer {
     bottom: 0;
     left: 0;
     height: 70px;
-    background:url("/styles/images/Elegant_Background-1.jpg");
+    background:none;
     width: 100%;
 }
-
-
-
-
-
 
 
 
@@ -72,16 +69,11 @@ a:hover {
 
 /* this is the button images*/
 li.comments {
+
 }
 li.posts {
-}
-li.category {
-}
-li.famous {
-}
-li.random {
-}
 
+}
 
 li.mouseover {
     background:url("/styles/images/denim.png");
@@ -139,7 +131,7 @@ li.selected {
     margin:0 10px 0 25px;
     padding:0;
     width:190px;
-    list-style-image:url("/images/arrow.gif")
+    list-style:none;
 }
 
 .boxBody div li {

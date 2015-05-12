@@ -32,42 +32,16 @@
     <tilesx:useAttribute name="mainMenu"/>
     <tilesx:useAttribute name="subMenu"/>
 
-    <script src="/scripts/menu.js" type="text/javascript"><!--Prevent minimizing tag--></script>
-
-    <!--
-    <a href="${addHomeUrl}"><h1 class="${mainMenu == 'home' ? 'active' : ''}">${menuLabel}</h1></a>
-    <ul>
-        <li><a href="${playerUrl}"><h2>${playersLabel}</h2></a></li>
-        <c:if test="${mainMenu == 'players' ? true : false}">
-            <ul>
-                <li><a href="${findPlayerUrl}"><h3 class="${subMenu == 'findPlayer' ? 'active' : ''}">${findPlayerLabel}</h3></a></li>
-                <li><a href="${addGameResultUrl}"><h3 class="${subMenu == 'addGameResult' ? 'active' : ''}">${addResultLabel}</h3></a></li>
-            </ul>
-        </c:if>
-        <li><a href="${addGameUrl}"><h2>${gamesLabel}</h2></a></li>
-        <c:if test="${mainMenu == 'games' ? true : false}">
-            <ul>
-                <li><a href="${findGameUrl}"><h3 class="${subMenu == 'findGame' ? 'active' : ''}">${findGamesLabel}</h3></a></li>
-            </ul>
-        </c:if>
-    </ul>
-    -->
-
-
-
+    <script src="/scripts/menu.js" type="text/javascript"><!--PreventMinimizingTag--></script>
 
     <div class="box">
 
         <ul id="tabMenu">
-            <li class="posts selected"></li> <!-- default button-->
+            <li class="posts selected"></li>
             <li class="comments"></li>
-            <li class="category"></li>
-            <li class="famous"></li>
-            <li class="random"></li>
         </ul>
 
-
-        <div class="boxTop"><!----></div>
+        <div class="boxTop"><!--PreventMinimizingTag--></div>
 
         <div class="boxBody">
             <div id="posts" class="show parent">
@@ -87,7 +61,7 @@
 
         </div>
 
-        <div class="boxBottom"><!----></div>
+        <div class="boxBottom"><!--PreventMinimizingTag--></div>
 
     </div>
 
