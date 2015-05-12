@@ -1,0 +1,159 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("http://fonts.googleapis.com/css?family=Abril+Fatface&subset=latin,latin-ext");
+@import url("messages/messages.css");
+
+body{
+    font-family: 'Abril Fatface', cursive;
+    margin-bottom: 120px;
+    background:url("/styles/images/Elegant_Background-1.jpg");
+}
+
+.container {
+    position: relative;
+}
+@media screen and (min-width:600px) {
+    nav {
+        float: left;
+        width: 25%;
+    }
+
+    section {
+        margin-left: 25%;
+    }
+}
+@media screen and (max-width:599px) {
+    nav li {
+        display: inline;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    background:url("/styles/images/Elegant_Background-1.jpg");
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/*For menu */
+a {
+    color:#ccc;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#ccc;
+    text-decoration:none
+}
+
+
+#tabMenu {
+    margin:0;
+    padding:0 0 0 15px;
+    list-style:none;
+}
+
+#tabMenu li {
+    float:left;
+    height:32px;
+    width:39px;
+    cursor:pointer;
+    cursor:hand
+}
+
+/* this is the button images*/
+li.comments {
+}
+li.posts {
+}
+li.category {
+}
+li.famous {
+}
+li.random {
+}
+
+
+li.mouseover {
+    background:url("/styles/images/denim.png");
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+}
+
+li.selected {
+    background:url("/styles/images/denim.png");
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+}
+
+.box {
+    width: 100%;
+}
+
+.boxTop {
+    background:url("/styles/images/denim.png");
+    width: 100%;
+    border-top-right-radius: 2em;
+    border-top-left-radius: 2em;
+    height:11px;
+    clear:both
+}
+
+.boxBody {
+    background:url("/styles/images/denim.png");
+}
+
+.boxBottom {
+    background:url("/styles/images/denim.png");
+    width: 100%;
+    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    height:11px;
+}
+
+
+.boxBody div.parent {
+    display:none;
+}
+
+.boxBody div.show {
+    display:block;
+}
+
+
+.boxBody #category a {
+    display:block
+}
+
+/* styling for the content*/
+.boxBody div ul {
+    margin:0 10px 0 25px;
+    padding:0;
+    width:190px;
+    list-style-image:url("/images/arrow.gif")
+}
+
+.boxBody div li {
+    padding:4px 0;
+    cursor:hand;
+    cursor:pointer
+}
+
+.boxBody div li span {
+    font-size:8px;
+    font-style:italic;
+    color:#888;
+}
+
+/* IE Hacks */
+*html .boxTop {margin-bottom:-2px;}
+*html .boxBody div ul {margin-left:10px;padding-left:15px;}

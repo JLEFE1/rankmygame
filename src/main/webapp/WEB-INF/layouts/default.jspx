@@ -18,17 +18,25 @@
 		<spring:url value="/${app_css}" var="app_css_url" />
 		<link rel="styleSheet" type="text/css" media="screen" href="${app_css_url}" />
 
+		<spring:theme code="theme" var="theme_app_css" />
+		<spring:url value="/${theme_app_css}" var="theme_app_css_url" />
+		<link rel="theme" type="text/css" media="screen" href="${theme_app_css_url}" />
+
 		<script src="/scripts/jquery-2.1.4.min.js"><!--Prevent minimizing script tag--></script>
 		<script src="/scripts/jquery-ui.min.js"><!--Prevent minimizing script tag--></script>
 
 	</head>
 	
   	<body class="tundra spring">
-  	    <div id="headerWrapper">
+
+	<!--
+	<div id="headerWrapper">
   	        <tiles:insertAttribute name="header" ignore="true" />
   	    </div>
    		<div id="wrapper">
-		    <tiles:insertAttribute name="menu" ignore="true" />   
+			<div id="menuWrapper">
+		    	<tiles:insertAttribute name="menu" ignore="true" />
+			</div>
 		    <div id="main">
 	    		<tiles:insertAttribute name="body"/> 
 			</div>
@@ -36,7 +44,27 @@
 		<div id="footerWrapper">
 			<tiles:insertAttribute name="footer" ignore="true"/>
 		</div>
+	-->
 
+	<div id="container">
+
+		<nav>
+			<tiles:insertAttribute name="menu" ignore="true" />
+		</nav>
+
+		<section>
+			<tiles:insertAttribute name="header" ignore="true" />
+		</section>
+
+		<section>
+			<tiles:insertAttribute name="body" ignore="true" />
+		</section>
+
+	</div>
+
+	<footer id="footer">
+		<tiles:insertAttribute name="footer" ignore="true"/>
+	</footer>
 
 
 	</body>

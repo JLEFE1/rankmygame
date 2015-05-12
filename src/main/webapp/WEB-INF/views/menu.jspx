@@ -34,6 +34,7 @@
 
     <script src="/scripts/menu.js" type="text/javascript"><!--Prevent minimizing tag--></script>
 
+    <!--
     <a href="${addHomeUrl}"><h1 class="${mainMenu == 'home' ? 'active' : ''}">${menuLabel}</h1></a>
     <ul>
         <li><a href="${playerUrl}"><h2>${playersLabel}</h2></a></li>
@@ -50,4 +51,44 @@
             </ul>
         </c:if>
     </ul>
+    -->
+
+
+
+
+    <div class="box">
+
+        <ul id="tabMenu">
+            <li class="posts selected"></li> <!-- default button-->
+            <li class="comments"></li>
+            <li class="category"></li>
+            <li class="famous"></li>
+            <li class="random"></li>
+        </ul>
+
+
+        <div class="boxTop"><!----></div>
+
+        <div class="boxBody">
+            <div id="posts" class="show parent">
+                <ul>
+                    <ul>
+                        <li><a href="${findPlayerUrl}"><h3 class="${subMenu == 'findPlayer' ? 'active' : ''}">${findPlayerLabel}</h3></a></li>
+                        <li><a href="${addGameResultUrl}"><h3 class="${subMenu == 'addGameResult' ? 'active' : ''}">${addResultLabel}</h3></a></li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div id="comments" class="parent">
+                <ul>
+                    <li><a href="${findGameUrl}"><h3 class="${subMenu == 'findGame' ? 'active' : ''}">${findGamesLabel}</h3></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="boxBottom"><!----></div>
+
+    </div>
+
 </div>
