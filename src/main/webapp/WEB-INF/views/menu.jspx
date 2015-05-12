@@ -9,24 +9,29 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
 
     <spring:message code="menu_header_text" var="menuLabel"/>
+
     <spring:message code="menu_players" var="playersLabel"/>
+    <spring:message code="menu_find_player" var="findPlayerLabel"/>
+    <spring:message code="menu_add_player" var="addPlayerLabel"/>
+    <spring:message code="menu_update_player" var="updatePlayerLabel"/>
+
     <spring:message code="menu_games" var="gamesLabel"/>
     <spring:message code="menu_find_games" var="findGamesLabel"/>
     <spring:message code="menu_last_games" var="lastGamesLabel"/>
+    <spring:message code="menu_add_result" var="addResultLabel"/>
 
+    <spring:url value="/" var="addHomeUrl"/>
     <spring:url value="/games?form" var="addGameUrl"/>
     <spring:url value="/games/find" var="findGameUrl"/>
     <spring:url value="/games/lastgames" var="lastGamesUrl"/>
-    <spring:url value="/players?form" var="addPlayerUrl"/>
-    <spring:message code="menu_find_player" var="findPlayerLabel"/>
-    <spring:message code="menu_add_result" var="addResultLabel"/>
-
     <spring:url value="/games?form" var="addGameUrl"/>
     <spring:url value="/games/find" var="findGameUrl"/>
     <spring:url value="/players" var="playerUrl"/>
+    <spring:url value="/players?form" var="addPlayerUrl"/>
     <spring:url value="/players/findPlayer" var="findPlayerUrl"/>
+    <spring:url value="/players/updatePlayer" var="updatePlayerUrl"/>
     <spring:url value="/players/addGameResult" var="addGameResultUrl"/>
-    <spring:url value="/" var="addHomeUrl"/>
+
 
     <script src="/scripts/menu.js" type="text/javascript"><!--PreventMinimizingTag--></script>
 
@@ -34,24 +39,32 @@
 
         <ul id="tabMenu">
             <li class="selected"><img src="/images/icon_players.svg"></img></li>
-            <li><img src="/images/icon_firstplace.svg"></img></li>
+            <li><img src="/images/icon_games.svg"></img></li>
+            <li><img src="/images/icon_medaille.svg"></img></li>
         </ul>
 
         <div class="boxTop"><!--PreventMinimizingTag--></div>
 
         <div class="boxBody">
-            <div id="posts" class="show parent">
+            <div id="players" class="show parent">
                 <ul>
                     <ul>
-                        <li><a href="${findPlayerUrl}"><h3>${findPlayerLabel}</h3></a></li>
-                        <li><a href="${addGameResultUrl}"><h3>${addResultLabel}</h3></a></li>
+                        <li><a href="${findPlayerUrl}"><img src="/images/icon_games.svg"></img><h3>${findPlayerLabel}</h3></a></li>
+                        <li><img src="/images/icon_addplayer.svg"></img><a href="${addPlayerUrl}"><h3>${addPlayerLabel}</h3></a></li>
+                        <li><img src="/images/icon_updateplayer.svg"></img><a href="${updatePlayerUrl}"><h3>${updatePlayerLabel}</h3></a></li>
                     </ul>
                 </ul>
             </div>
 
-            <div id="comments" class="parent">
+            <div id="games" class="parent">
                 <ul>
-                    <li><a href="${findGameUrl}"><h3>${findGamesLabel}</h3></a></li>
+                    <li><img src="/images/icon_ranking.svg"></img><a href="${findGameUrl}"><h3>${findGamesLabel}</h3></a></li>
+                </ul>
+            </div>
+
+            <div id="results" class="parent">
+                <ul>
+                    <li><img src="/images/icon_ranking.svg"></img><a href="${addGameResultUrl}"><h3>${addResultLabel}</h3></a></li>
                 </ul>
             </div>
 
