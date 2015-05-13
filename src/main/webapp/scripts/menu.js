@@ -10,6 +10,9 @@ $(document).ready(function() {
     } else if (mainMenu === "games"){
         $("#games").addClass('show');
         $("#gamesMain").addClass('selected');
+    }else if (mainMenu === "ranking"){
+        $("#ranking").addClass('show');
+        $("#rankingMain").addClass('selected');
     }
 
 

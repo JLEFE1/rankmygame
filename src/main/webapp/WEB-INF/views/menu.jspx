@@ -21,17 +21,18 @@
     <spring:message code="menu_add_result" var="addResultLabel"/>
 
     <spring:url value="/" var="addHomeUrl"/>
-    <spring:url value="/games?form" var="addGameUrl"/>
-    <spring:url value="/games/find" var="findGameUrl"/>
-    <spring:url value="/games/lastgames" var="lastGamesUrl"/>
-    <spring:url value="/games?form" var="addGameUrl"/>
-    <spring:url value="/games/find" var="findGameUrl"/>
+
     <spring:url value="/players" var="playerUrl"/>
     <spring:url value="/players?form" var="addPlayerUrl"/>
     <spring:url value="/players/findPlayer" var="findPlayerUrl"/>
     <spring:url value="/players/updatePlayer" var="updatePlayerUrl"/>
-    <spring:url value="/players/addGameResult" var="addGameResultUrl"/>
 
+    <spring:url value="/games?form" var="addGameUrl"/>
+    <spring:url value="/games/find" var="findGameUrl"/>
+    <spring:url value="/games/find" var="findGameUrl"/>
+
+    <spring:url value="/ranking/lastgames" var="lastGamesUrl"/>
+    <spring:url value="/ranking/addGameResult" var="addGameResultUrl"/>
 
     <script src="/scripts/menu.js" type="text/javascript"><!--PreventMinimizingTag--></script>
 
@@ -47,13 +48,12 @@
     <div class="box">
 
         <input type="hidden" name="mainMenu" value="${mainMenu}"/>
-        <!--document.getElementsByName("mainMenu")[0].value-->
         <input type="hidden" name="subMenu" value="${subMenu}"/>
 
         <ul id="tabMenu">
             <li id="playersMain"><img src="/images/icon_players.svg"></img></li>
             <li id="gamesMain"><img src="/images/icon_games.svg"></img></li>
-            <li id="rankMain"><img src="/images/icon_medaille.svg"></img></li>
+            <li id="rankingMain"><img src="/images/icon_medaille.svg"></img></li>
         </ul>
 
         <div class="boxTop"><!--PreventMinimizingTag--></div>
@@ -64,7 +64,6 @@
                     <ul>
                         <li><a href="${findPlayerUrl}"><img src="/images/icon_games.svg"></img><h3>${findPlayerLabel}</h3></a></li>
                         <li><img src="/images/icon_addplayer.svg"></img><a href="${addPlayerUrl}"><h3>${addPlayerLabel}</h3></a></li>
-                        <li><img src="/images/icon_updateplayer.svg"></img><a href="${updatePlayerUrl}"><h3>${updatePlayerLabel}</h3></a></li>
                     </ul>
                 </ul>
             </div>
@@ -75,9 +74,10 @@
                 </ul>
             </div>
 
-            <div id="results" class="parent">
+            <div id="ranking" class="parent">
                 <ul>
                     <li><img src="/images/icon_ranking.svg"></img><a href="${addGameResultUrl}"><h3>${addResultLabel}</h3></a></li>
+                    <li><img src="/images/icon_ranking.svg"></img><a href="${lastGamesUrl}"><h3>${lastGamesLabel}</h3></a></li>
                 </ul>
             </div>
 

@@ -23,13 +23,8 @@ import java.util.List;
 @RequestMapping("/games")
 public class GameController {
 
-    private final static String URL = "http://boardgamegeek.com/xmlapi/search?search=galaxy";
-
     @Autowired
     private GameService gameService;
-
-    @Autowired
-    private PlayedGameService playedGameService;
 
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String newGame(Model uiModel) {
@@ -41,17 +36,6 @@ public class GameController {
     public String findGameInBGG(Model uimodel){
         uimodel.addAttribute("form", new FindGameForm());
         return "games/find";
-    }
-
-    @RequestMapping(value = "/lastgames", method = RequestMethod.GET)
-    public String lastGames(Model uimodel){
-
-        PlayedGame game = playedGameService.findById(3L);
-
-        LastGameForm form = new LastGameForm(game.getRankableGame().getGameTitle(), game.getPlayerResults());
-        uimodel.addAttribute("form", form);
-
-        return "games/lastgames";
     }
 
     @RequestMapping(value = "/find", method = RequestMethod.POST)
