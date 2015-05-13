@@ -30,6 +30,12 @@
         <put-attribute name="subMenu" value="players" cascade="true"/>
     </definition>
 
+    <definition name="players/addPlayer" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/players/updatePlayer.jspx" />
+        <put-attribute name="mainMenu" value="players" cascade="true"/>
+        <put-attribute name="subMenu" value="addPlayer" cascade="true"/>
+    </definition>
+
     <definition name="players/findPlayer" extends="default">
         <put-attribute name="body" value="/WEB-INF/views/players/findPlayer.jspx" />
         <put-attribute name="mainMenu" value="players" cascade="true"/>

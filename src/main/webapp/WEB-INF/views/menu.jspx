@@ -23,7 +23,7 @@
     <spring:url value="/" var="addHomeUrl"/>
 
     <spring:url value="/players" var="playerUrl"/>
-    <spring:url value="/players?form" var="addPlayerUrl"/>
+    <spring:url value="/players/addPlayer" var="addPlayerUrl"/>
     <spring:url value="/players/findPlayer" var="findPlayerUrl"/>
     <spring:url value="/players/updatePlayer" var="updatePlayerUrl"/>
 

@@ -40,6 +40,12 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
+    @RequestMapping(value = "addPlayer", method = RequestMethod.GET)
+    public String addPlayer(final Model uiModel){
+        uiModel.addAttribute("player", new Player());
+        return "players/updateForm";
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String show(@PathVariable("id") Long id, Model uiModel){
         uiModel.addAttribute("player", playerService.findById(id));
@@ -103,37 +109,6 @@ public class PlayerController {
         uiModel.addAttribute("playerSearchFields", playerSearchFields);
 
         return "players/findPlayer";
-    }
-
-    @RequestMapping(value = "addGameResult", method = RequestMethod.GET)
-    public String addGameResult(ModelMap uiModel) {
-
-        Player pl1 = new Player();
-        pl1.setFirstName("Fn1");
-        pl1.setLastName("Ln1");
-        Player pl2 = new Player();
-        pl2.setFirstName("Fn2");
-        pl2.setLastName("Ln2");
-
-        RankedGameForm rankedGameForm = new RankedGameForm();
-        rankedGameForm.addPlayer(pl1);
-        rankedGameForm.addPlayer(pl2);
-
-        uiModel.addAttribute("rankedGameForm", rankedGameForm);
-
-
-        return "players/addGameResult";
-    }
-
-    @RequestMapping(value = "addGameResult", method = RequestMethod.POST)
-    public String addGameResult(final RankedGameForm form, ModelMap uiModel) {
-
-
-        RankedGameForm rankedGameForm = new RankedGameForm();
-        uiModel.addAttribute("rankedGameForm", rankedGameForm);
-
-
-        return "players/addGameResult";
     }
 
 }
