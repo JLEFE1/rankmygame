@@ -49,6 +49,13 @@ img {
 
 
 
+li.subMenu > a > img{
+    max-height: 25px;
+    max-width: 25px;
+}
+
+
+
 
 /*For menu */
 a {
@@ -138,7 +145,8 @@ li.selected {
 .boxBody div li {
     padding:4px 0;
     cursor:hand;
-    cursor:pointer
+    cursor:pointer;
+    max-width: 70%;
 }
 
 .boxBody div li span {

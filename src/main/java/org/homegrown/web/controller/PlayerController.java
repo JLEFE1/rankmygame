@@ -59,8 +59,11 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.POST)
-    public String update(@Valid Player player, BindingResult bindingResult, Model uiModel,
+    public String update(@Valid Player player,@PathVariable("id") long id, BindingResult bindingResult, Model uiModel,
                          HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes, Locale locale) {
+
+        Player playerFromDb = playerService.findById(id);
+
         logger.info("Updating player");
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("message", new Message("error", messageSource.getMessage("player_save_fail", new Object[]{}, locale)));
@@ -70,6 +73,7 @@ public class PlayerController {
         uiModel.asMap().clear();
         redirectAttributes.addFlashAttribute("message", new Message("success", messageSource.getMessage("player_save_success", new Object[]{}, locale)));
 
+        player.getPlayerResults().addAll(playerFromDb.getPlayerResults());
         playerService.save(player);
         return "redirect:/players/" + UrlUtil.encodeUrlPathSegment(player.getId().toString(), httpServletRequest);
     }

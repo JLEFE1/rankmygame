@@ -34,7 +34,7 @@ public class Game implements Serializable {
     @Version
     private int version;
 
-    @OneToMany(mappedBy = "game", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "game", cascade=CascadeType.ALL, orphanRemoval=true, fetch = FetchType.EAGER)
     private List<PlayedGame> playedGames;
 
     public String getArtist() {

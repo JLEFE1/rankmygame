@@ -62,22 +62,22 @@
             <div id="players" class="parent">
                 <ul>
                     <ul>
-                        <li><a href="${findPlayerUrl}"><img src="/images/icon_games.svg"></img><h3>${findPlayerLabel}</h3></a></li>
-                        <li><img src="/images/icon_addplayer.svg"></img><a href="${addPlayerUrl}"><h3>${addPlayerLabel}</h3></a></li>
+                        <li class="subMenu"><a href="${findPlayerUrl}"><img src="/images/icon_players.svg"></img><h3>${findPlayerLabel}</h3></a></li>
+                        <li class="subMenu"><a href="${addPlayerUrl}"><img src="/images/icon_addplayer.svg"></img><h3>${addPlayerLabel}</h3></a></li>
                     </ul>
                 </ul>
             </div>
 
             <div id="games" class="parent">
                 <ul>
-                    <li><img src="/images/icon_ranking.svg"></img><a href="${findGameUrl}"><h3>${findGamesLabel}</h3></a></li>
+                    <li class="subMenu"><a href="${findGameUrl}"><img src="/images/icon_dblist.svg"></img><h3>${findGamesLabel}</h3></a></li>
                 </ul>
             </div>
 
             <div id="ranking" class="parent">
                 <ul>
-                    <li><img src="/images/icon_ranking.svg"></img><a href="${addGameResultUrl}"><h3>${addResultLabel}</h3></a></li>
-                    <li><img src="/images/icon_ranking.svg"></img><a href="${lastGamesUrl}"><h3>${lastGamesLabel}</h3></a></li>
+                    <li class="subMenu"><a href="${addGameResultUrl}"><img src="/images/icon_ranking.svg"></img><h3>${addResultLabel}</h3></a></li>
+                    <li class="subMenu"><a href="${lastGamesUrl}"><img src="/images/icon_firstplace.svg"></img><h3>${lastGamesLabel}</h3></a></li>
                 </ul>
             </div>
 

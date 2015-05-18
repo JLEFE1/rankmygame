@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -37,7 +38,7 @@ public class Player implements Serializable {
     @Column(name = "PHOTO")
     private byte[] photo;
 
-    @OneToMany(mappedBy = "player", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "player", cascade=CascadeType.ALL, orphanRemoval=true, fetch = FetchType.EAGER)
     private List<PlayerResult> playerResults;
 
     public int getVersion() {
@@ -89,6 +90,9 @@ public class Player implements Serializable {
     }
 
     public List<PlayerResult> getPlayerResults() {
+        if (playerResults == null){
+            playerResults = new ArrayList<>();
+        }
         return playerResults;
     }
 

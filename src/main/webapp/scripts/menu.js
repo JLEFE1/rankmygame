@@ -4,7 +4,7 @@ $(document).ready(function() {
     var mainMenu = document.getElementsByName("mainMenu")[0].value;
     var subMenu = document.getElementsByName("subMenu")[0].value;
 
-    if(mainMenu === "players"){
+    if(mainMenu === "players" || mainMenu === "home"){
         $("#players").addClass('show');
         $("#playersMain").addClass('selected');
     } else if (mainMenu === "games"){
